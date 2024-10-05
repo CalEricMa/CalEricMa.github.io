@@ -1,0 +1,187 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Fixed sidebar styling */
+.sidebar {
+  background-color: #2874a4;
+  width: 275px;
+  height: 100vh; /* Full height */
+  padding: 20px;
+  font-weight: 300;
+  text-align: center;
+  position: fixed; /* Sidebar stays fixed */
+  top: 0;
+  left: 0;
+}
+
+/* Profile picture styling */
+.profile-pic {
+  margin-top: 170px;  
+}
+
+.profile-pic img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 10px solid #3b8ac6;
+}
+
+h1{
+  font-size: 45px;
+  margin-bottom: 45px;
+}
+
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;  /* Adjust this value to control the spacing */
+}
+
+/* Side Menu styling */
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  margin: 20px 0;
+}
+
+.side-menu ul li a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: #92b8d1;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.side-menu ul li a:hover {
+  text-decoration: underline;
+}
+
+.side-menu ul li a.active {
+  color: white; /* Active link color */
+  font-weight: bold;
+}
+
+/* Main content styling */
+.content {
+  margin-left: 250px; /* Create space for the sidebar */
+  padding: 40px;
+  flex: 1;
+}
+
+.about-content {
+
+  margin-top: 150px;
+
+
+}
+
+/* .name h1 {
+  font-size: 100px;
+  font-weight: bold;
+  margin-bottom: 10px;
+} */
+
+h1 .first-name {
+  color: #333; /* Dark color for the first name */
+  font-size: 100px;
+  font-weight: bold;
+
+}
+
+h1 .last-name {
+  color: #2c6fbb; /* Blue color for the last name */
+  font-size: 100px;
+  font-weight: bold;
+
+}
+
+.name{
+  margin-bottom: 0;
+}
+.subtitle {
+  color: #2c6fbb;
+  font-size: 24px;
+}
+
+.contact-links a {
+  color: #2c6fbb;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 30px;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+/* General Section Styling */
+.section {
+  height: 100vh; /* Each section takes up the full viewport height */
+  padding: 40px; /* Add padding for content */
+}
+
+/* Horizontal line styling */
+hr {
+  border: none;
+  border-top: 2px solid #ccc; /* Grey line */
+}
+
+.description {
+  margin-top: 40px;  /* Adjust as needed for the space above */
+  margin-bottom: 40px;  /* Adjust as needed for the space below */
+}
+
+.section:not(.about-content) {
+  padding-top: 60px; /* Adjust the padding for more space above the section */
+  padding-bottom: 60px; /* Adjust the padding for more space below the section */
+  font-size: 18px; /* Adjust the font size */
+}
+
+/* Style the section headers */
+.section h1 {
+  font-size: 36px; /* Adjust font size for section headings */
+  margin-bottom: 30px; /* Adjust spacing below the section headings */
+}
+
+/* Style the experience items */
+.section p {
+  margin-bottom: 20px; /* Add some margin between paragraphs */
+}
+
+.section ul {
+  margin-left: 20px; /* Adjust list indentation */
+}
+
+.section li {
+  margin-bottom: 15px; /* Add some space between list items */
+}
+
+p, li{
+  color:grey
+}
