@@ -142,7 +142,7 @@ h1 .last-name {
 
 /* General Section Styling */
 .section {
-  height: 100vh; /* Each section takes up the full viewport height */
+  min-height: 100vh; 
   padding: 40px; /* Add padding for content */
 }
 
@@ -150,6 +150,7 @@ h1 .last-name {
 hr {
   border: none;
   border-top: 2px solid #ccc; /* Grey line */
+  margin: 5px;
 }
 
 .description {
