@@ -82,11 +82,6 @@ li {
   text-decoration: underline;
 }
 
-.side-menu ul li a.active {
-  color: white; /* Active link color */
-  font-weight: bold;
-}
-
 /* Main content styling */
 .content {
   margin-left: 250px; /* Create space for the sidebar */
