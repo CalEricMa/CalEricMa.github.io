@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Ma - Thoughts</title>
+  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="profile-pic">
+        <img src="../../pic/profile.jpg" alt="Eric Ma">
+      </div>
+      <div class="side-menu">
+        <ul>
+          <li><a href="../../index.html">About</a></li>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#education">Education</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../index.html#skills">Skills</a></li>
+          <li><a href="../thoughts.html">Thoughts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">
+        <h2>Voice Command Controlled Car</h2>
+        <br>
+        <article>
+          <p>
+            This project involved designing and implementing a voice-controlled robotic car capable of precise navigation and intuitive user control. By integrating machine learning for voice recognition with closed-loop control systems for trajectory correction, the car achieves stable and reliable movement in response to voice commands.
+          </p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            <li>Improved navigation stability by 98% through least squares and linear regression applied to encoder data.</li>
+            <li>Enhanced trajectory precision using a closed-loop control system with real-time encoder feedback, ensuring auto-correction of path deviations.</li>
+            <li>Enabled voice-controlled navigation with a machine learning-based voice command classifier using SVD and PCA, achieving 95%+ classification accuracy.</li>
+          </ul>
+
+          <h3>Tech Stack</h3>
+          <ul>
+            <li><strong>Programming Languages:</strong> C++, Python</li>
+            <li><strong>Tools and Libraries:</strong> Arduino, NumPy</li>
+            <li><strong>Machine Learning Techniques:</strong> Singular Value Decomposition (SVD), Principal Component Analysis (PCA)</li>
+            <li><strong>Hardware:</strong> Arduino microcontroller, Motor encoders</li>
+          </ul>
+
+          <h3>Implementation</h3>
+          <p>
+            <strong>Navigation Stability:</strong> Applied least squares regression and linear regression to motor encoder data to minimize velocity differences between wheels, improving overall stability and ensuring smoother movement.<br>
+            <strong>Trajectory Correction:</strong> Designed a closed-loop feedback system that used real-time encoder data to correct deviations caused by external disturbances, ensuring precise path following.<br>
+            <strong>Voice Recognition:</strong> Developed a machine learning-based voice command classifier using SVD and PCA to process and categorize voice inputs, enabling intuitive control with high accuracy.
+          </p>
+
+          <h3>Challenges and Solutions</h3>
+          <ul>
+            <li>
+              <strong>Challenge:</strong> Achieving consistent and stable navigation under varying conditions.<br>
+              <strong>Solution:</strong> Used real-time encoder feedback to dynamically adjust motor speed and correct deviations.
+            </li>
+            <li>
+              <strong>Challenge:</strong> Reliable voice command recognition in noisy environments.<br>
+              <strong>Solution:</strong> Preprocessed audio signals and employed SVD and PCA for robust feature extraction, improving classification accuracy.
+            </li>
+          </ul>
+
+          <h3>Results</h3>
+          <ul>
+            <li>Achieved <strong>98% navigation stability</strong>, ensuring consistent and reliable movement.</li>
+            <li>Reduced wheel velocity difference to <strong>2%</strong>, minimizing drift and improving path accuracy.</li>
+            <li>Enabled intuitive user control with a voice command classification accuracy of <strong>95%+</strong>.</li>
+          </ul>
+
+          <h3>Showcase</h3>
+          <ul>
+            <li><a href="https://github.com/CalEricMa/Voice-Command-Controlled-Car" target="_blank">GitHub Repository</a></li>
+          </ul>
+        </article>
+    </div>
+  </div>
+</body>
+</html>

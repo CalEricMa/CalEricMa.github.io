@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Ma - Thoughts</title>
+  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="profile-pic">
+        <img src="../../pic/profile.jpg" alt="Eric Ma">
+      </div>
+      <div class="side-menu">
+        <ul>
+          <li><a href="../../index.html">About</a></li>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#education">Education</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../index.html#skills">Skills</a></li>
+          <li><a href="../thoughts.html">Thoughts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">
+        <h2>Probabilistic Decryption using MCMC Sampling</h2>
+        <br>
+        <article>
+          <p>
+            This project involved developing a probabilistic decryption system to decode encrypted messages efficiently using Markov Chain Monte Carlo (MCMC) techniques. The system leverages a probabilistic language model based on character-level transition probabilities to reconstruct plaintext messages from ciphered text. It demonstrates the application of probabilistic modeling and Bayesian inference in solving cryptography-inspired tasks.
+
+        </p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            <li>Probabilistic Language Model: Constructed a bigram frequency matrix to capture statistical relationships between characters.</li>
+            <li>Efficient Sampling Algorithm: Implemented the Metropolis-Hastings algorithm to explore high-dimensional cipher permutations.</li>
+            <li>Bayesian Inference Techniques: Applied log-likelihood scoring to evaluate decoding probabilities.</li>
+          </ul>
+
+          <h3>Tech Stack</h3>
+          <ul>
+            <li><strong>Programming Language:</strong> Python</li>
+            <li><strong>Libraries:</strong> NumPy</li>
+            <li><strong>Techniques:</strong> Probabilistic Modeling, Markov Chain Monte Carlo (MCMC), Bayesian Inference</li>
+          </ul>
+
+          <h3>Implementation</h3>
+          <p>
+            <strong>Bigram Frequency Matrix Construction:</strong> Generated a matrix of character-level transition probabilities using <em>War and Peace</em> as the reference text.<br>
+            <strong>MCMC Sampling with Metropolis-Hastings:</strong> Designed a sampling algorithm to iteratively explore cipher permutations, with acceptance probabilities calculated using log-likelihood scoring.<br>
+            <strong>Decoding and Evaluation:</strong> Decoded encrypted messages by applying the most probable cipher permutation, reducing error rates and enhancing robustness.
+          </p>
+
+          <h3>Challenges and Solutions</h3>
+          <ul>
+            <li>
+              <strong>Challenge:</strong> Ensuring efficient sampling from a high-dimensional probability space.<br>
+              <strong>Solution:</strong> Optimized sampling by tuning parameters such as burn-in period and step interval.
+            </li>
+            <li>
+              <strong>Challenge:</strong> Capturing accurate transition probabilities for real-world text.<br>
+              <strong>Solution:</strong> Leveraged a large reference text corpus (<em>War and Peace</em>) to train the bigram frequency matrix.
+            </li>
+          </ul>
+
+          <h3>Results</h3>
+          <ul>
+            <li>Achieved an <strong>80% reduction in decoding error rates</strong> compared to baseline approaches.</li>
+            <li>Enhanced decryption efficiency through intelligent cipher permutation exploration.</li>
+            <li>Demonstrated the scalability of MCMC sampling for complex probabilistic inference tasks.</li>
+          </ul>
+
+          <!-- <h3>Showcase</h3> -->
+          <ul>
+            <!-- <li><a href="https://github.com/your-repo-link" target="_blank">GitHub Repository</a></li>
+            <li><a href="https://your-notebook-link" target="_blank">Notebook Demo</a></li> -->
+          </ul>
+        </article>
+    </div>
+  </div>
+</body>
+</html>
