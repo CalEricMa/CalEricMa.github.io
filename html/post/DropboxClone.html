@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Ma - Thoughts</title>
+  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="profile-pic">
+        <img src="../../pic/profile.jpg" alt="Eric Ma">
+      </div>
+      <div class="side-menu">
+        <ul>
+          <li><a href="../../index.html">About</a></li>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#education">Education</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../index.html#skills">Skills</a></li>
+          <li><a href="../thoughts.html">Thoughts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">
+        <h2>Dropbox Clone with End-to-End Encryption</h2>
+        <br>
+        <article>
+          <p>
+            This project is a secure file-sharing platform inspired by Dropbox, designed to safeguard user data privacy through end-to-end encryption. Files are encrypted on the client side, ensuring that the server has no access to unencrypted data.
+          </p>
+          
+          <h3>Key Features</h3>
+          <ul>
+            <li>End-to-end encryption using RSA and AES-CTR for robust data protection.</li>
+            <li>Secure file sharing with revocation capabilities through hybrid encryption methods.</li>
+            <li>File management via linked list structures for dynamic updates and retrievals.</li>
+            <li>Data integrity verification using HMAC during all file operations.</li>
+          </ul>
+
+          <h3>Tech Stack</h3>
+          <ul>
+            <li><strong>Programming Language:</strong> Golang</li>
+            <li><strong>Security Protocols:</strong> RSA, AES-CTR, HMAC</li>
+            <li><strong>Frameworks:</strong> Ginkgo (for testing)</li>
+            <li><strong>System Design:</strong> Distributed Datastore, Hybrid Encryption</li>
+          </ul>
+
+          <h3>Implementation</h3>
+          <p>
+            The platform encrypts files on the client side using AES-CTR for encryption and RSA for secure key exchange. A distributed datastore securely stores encrypted metadata alongside file fragments. File sharing and access revocation are handled via hybrid encryption, ensuring that sensitive data remains inaccessible to unauthorized users.
+          </p>
+
+          <h3>Challenges and Solutions</h3>
+          <ul>
+            <li>
+              <strong>Challenge:</strong> Securing user data against unauthorized server access.<br>
+              <strong>Solution:</strong> Implemented client-side encryption with RSA for secure key exchange.
+            </li>
+            <li>
+              <strong>Challenge:</strong> Enabling secure file sharing with access control.<br>
+              <strong>Solution:</strong> Designed hybrid encryption for sharing and revocation, ensuring privacy.
+            </li>
+          </ul>
+
+          <h3>Results</h3>
+          <ul>
+            <li>Prevented unauthorized server access, achieving <strong>100% data privacy</strong>.</li>
+            <li>Supported scalable file-sharing capabilities with reliable access control.</li>
+            <li>Conducted over <strong>100 rigorous security tests</strong>, ensuring robustness and reliability.</li>
+          </ul>
+
+          <h3>Showcase</h3>
+          <ul>
+            <li><a href="https://github.com/CalEricMa/Dropbox-Clone-with-End-to-End-Encryption" target="_blank">GitHub Repository</a></li>
+            <li><a href="https://docs.google.com/document/d/1UMB5Bb5_mRlXD_EVBlnF0XMGF2iPkoApD2vdQIkvHAA/edit?tab=t.0" target="_blank">Design Document</a></li>
+          </ul>
+        </article>
+    </div>
+  </div>
+</body>
+</html>
