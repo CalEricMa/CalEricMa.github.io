@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Ma - Thoughts</title>
+  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="profile-pic">
+        <img src="../../pic/profile.jpg" alt="Eric Ma">
+      </div>
+      <div class="side-menu">
+        <ul>
+          <li><a href="../../index.html">About</a></li>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#education">Education</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../index.html#skills">Skills</a></li>
+          <li><a href="../thoughts.html">Thoughts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">
+        <h2>Quant Finance Project: Developing and Backtesting a Systematic Trading Strategy</h2>
+        <br>
+        <article>
+          <p>
+            This project aimed to design, implement, and evaluate a systematic trading strategy using real-world financial data from the S&P 500 constituents. It was divided into two main parts: data cleaning and processing, and strategy development and backtesting. The project demonstrates how quantitative techniques can be applied to financial markets and how data science aids in creating actionable trading insights.
+          </p>
+          
+          <h3>Objectives</h3>
+          <ul>
+            <li><strong>Part 1: Data Preparation</strong>
+              <ul>
+                <li>Clean and organize financial data for analysis.</li>
+                <li>Explore statistical patterns in stock returns.</li>
+                <li>Visualize cumulative returns and market trends.</li>
+              </ul>
+            </li>
+            <li><strong>Part 2: Strategy Development</strong>
+              <ul>
+                <li>Design a momentum-based long-short trading strategy.</li>
+                <li>Incorporate predictive modeling using linear regression to forecast forward returns.</li>
+                <li>Evaluate performance while accounting for transaction costs and risk-adjusted metrics.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Methodology</h3>
+          <ul>
+            <li>
+              <strong>Data Preparation:</strong>
+              <ul>
+                <li>Collected historical price and volume data using the yfinance library.</li>
+                <li>Merged sector and industry data for feature engineering.</li>
+                <li>Handled missing values, standardized formats, and calculated log and forward returns.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Strategy Development and Backtesting:</strong>
+              <ul>
+                <li>Ranked stocks by past log returns, creating a long-short strategy:
+                  <ul>
+                    <li>Long positions in the top 20% decile.</li>
+                    <li>Short positions in the bottom 20% decile.</li>
+                  </ul>
+                </li>
+                <li>Adjusted returns to include transaction costs and observed performance decay.</li>
+                <li>Built a predictive model using linear regression, incorporating notional volume and sector data.</li>
+                <li>Validated strategies using train-test splits and compared results for momentum-based, predictive, and equal-weighted strategies.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Results</h3>
+          <ul>
+            <li>Momentum Strategy: Decile-based long-short strategy performed well but was outperformed by an equal-weighted benchmark.</li>
+            <li>Predictive Strategy: Showed improved performance over the momentum strategy, especially post-fees.</li>
+            <li>Sharpe Ratios: Equal-weighted strategy exceeded 3 due to bullish conditions, while the predictive strategy achieved a positive ratio post-fees.</li>
+          </ul>
+
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li><strong>Quantitative Techniques:</strong> Applied momentum-based and predictive strategies, emphasizing risk-adjusted metrics like Sharpe ratios.</li>
+            <li><strong>Backtesting Framework:</strong> Simulated real-world trading scenarios, highlighting the impact of transaction costs and slippage.</li>
+            <li><strong>Data Science and Modeling:</strong> Used linear regression, engineered features, and leveraged Python libraries (Pandas, NumPy, Statsmodels).</li>
+            <li><strong>Challenges:</strong> Addressed lookahead bias and overfitting risks through validation and careful backtesting.</li>
+          </ul>
+
+          <h3>Future Improvements</h3>
+          <ul>
+            <li>Incorporate macroeconomic indicators and sentiment analysis for enhanced features.</li>
+            <li>Extend backtesting to longer periods and diverse market conditions.</li>
+            <li>Explore advanced models like decision trees or neural networks for prediction.</li>
+            <li>Use portfolio optimization techniques to improve weighting schemes.</li>
+          </ul>
+
+          <h3>Skills Demonstrated</h3>
+          <ul>
+            <li><strong>Programming:</strong> Python (Pandas, NumPy, Matplotlib, Statsmodels), yfinance for data collection.</li>
+            <li><strong>Quantitative Analysis:</strong> Financial metrics, backtesting strategies, and transaction cost modeling.</li>
+            <li><strong>Machine Learning:</strong> Linear regression, feature engineering, and predictive modeling.</li>
+            <li><strong>Risk Assessment:</strong> Evaluated Sharpe ratios and visualized portfolio performance.</li>
+          </ul>
+
+          <h3>Showcase</h3>
+          <ul>
+            <li><a href="https://github.com/CalEricMa/Systematic-Trading-Strategy" target="_blank">GitHub Repository</a></li>
+          </ul>
+        </article>
+    </div>
+  </div>
+</body>
+</html>

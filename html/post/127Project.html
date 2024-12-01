@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Ma - Thoughts</title>
+  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="profile-pic">
+        <img src="../../pic/profile.jpg" alt="Eric Ma">
+      </div>
+      <div class="side-menu">
+        <ul>
+          <li><a href="../../index.html">About</a></li>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#education">Education</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../index.html#skills">Skills</a></li>
+          <li><a href="../thoughts.html">Thoughts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">
+        <h2>Detection of Adversarial Attacks in a Cyclic Power Network</h2>
+        <br>
+        <article>
+          <p>
+            This project involved designing and implementing a simulation-based approach to detect adversarial attacks in a cyclic power network. By leveraging Lasso regression with sparsity-inducing regularization, we achieved a 99% success rate in detecting and isolating attack locations under noisy and adversarial conditions.
+          </p>
+          
+          <h3>Objectives</h3>
+          <ul>
+            <li><strong>Primary Objective:</strong> Detect all attacked nodes and lines in the network with a high success rate.</li>
+            <li><strong>Secondary Objectives:</strong>
+              <ul>
+                <li>Simulate a realistic cyclic power network with adversarial conditions.</li>
+                <li>Evaluate the empirical performance of Lasso regression in detecting attack locations.</li>
+                <li>Demonstrate the practical use of sparsity-inducing regularization for solving real-world problems.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Methodology</h3>
+          <ul>
+            <li>
+              <strong>Network Simulation:</strong>
+              <ul>
+                <li>Constructed a cyclic power network with 100 nodes and edges.</li>
+                <li>Randomly generated network parameters:
+                  <ul>
+                    <li>Line reactances uniformly sampled from [0.1, 0.2].</li>
+                    <li>Nodal phases uniformly sampled from [−π/18, π/18].</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Measurement Generation:</strong> Calculated true power flows and nodal powers based on network physics.
+            </li>
+            <li>
+              <strong>Attack Simulation:</strong>
+              <ul>
+                <li>Simulated attacks on 10 randomly selected nodes and 10 specific edges.</li>
+                <li>Corrupted sensors with adversarial noise in addition to Gaussian noise.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Lasso Regression:</strong>
+              <ul>
+                <li>Formulated the problem as a Lasso optimization using CVXPY.</li>
+                <li>Enforced sparsity to isolate attacked locations.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Performance Evaluation:</strong>
+              <ul>
+                <li>Declared success if:
+                  <ul>
+                    <li>Non-attacked nodes/edges satisfied |v| ≤ 0.01.</li>
+                    <li>Attacked nodes/edges satisfied |v| > 0.01.</li>
+                  </ul>
+                </li>
+                <li>Repeated the experiment 100 times to calculate the empirical success rate.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Results</h3>
+          <ul>
+            <li><strong>Empirical Success Rate:</strong> Achieved 99% accuracy in identifying attack locations.</li>
+            <li>Demonstrated the robustness of Lasso regression under various adversarial conditions.</li>
+          </ul>
+
+          <h3>Skills Applied</h3>
+          <ul>
+            <li><strong>Optimization and Modeling:</strong> Formulated sparse regression problems with ℓ<sub>1</sub>-regularization to enforce sparsity.</li>
+            <li><strong>Programming:</strong> Used Python, NumPy, and CVXPY for simulations and optimization workflows.</li>
+            <li><strong>Simulation and Statistical Analysis:</strong> Generated realistic parameters and evaluated performance over 100 trials.</li>
+            <li><strong>Problem-Solving:</strong> Addressed challenges in sparse attack detection within large-scale networks.</li>
+          </ul>
+
+          <h3>Takeaways</h3>
+          <ul>
+            <li><strong>Effectiveness of Lasso Regression:</strong> Highly effective in detecting localized attacks in large-scale networks.</li>
+            <li><strong>Realistic Noise Modeling:</strong> Demonstrated the importance of Gaussian and adversarial noise simulation for realistic testing.</li>
+            <li><strong>Practical Applications:</strong> Showcased adaptability to systems like power grids and telecommunications networks.</li>
+            <li><strong>Integration of Theory and Practice:</strong> Highlighted the practical application of mathematical optimization to real-world challenges.</li>
+          </ul>
+
+          <h3>Showcase</h3>
+          <ul>
+            <li><a href="https://github.com/CalEricMa/Adversarial-Attack-Detection" target="_blank">GitHub Repository</a></li>
+          </ul>
+        </article>
+    </div>
+  </div>
+</body>
+</html>
