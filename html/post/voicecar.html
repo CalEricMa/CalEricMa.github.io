@@ -29,53 +29,99 @@
         <br>
         <article>
           <p>
-            This project involved designing and implementing a voice-controlled robotic car capable of precise navigation and intuitive user control. By integrating machine learning for voice recognition with closed-loop control systems for trajectory correction, the car achieves stable and reliable movement in response to voice commands.
+            This project involved designing and implementing a voice-controlled robotic car capable of precise navigation using machine learning for voice classification and feedback control systems for trajectory correction. A strong emphasis was placed on data preprocessing, dimensionality reduction, and real-time classification accuracy to enable reliable and responsive control.
           </p>
           
           <h3>Key Features</h3>
           <ul>
-            <li>Improved navigation stability by 98% through least squares and linear regression applied to encoder data.</li>
-            <li>Enhanced trajectory precision using a closed-loop control system with real-time encoder feedback, ensuring auto-correction of path deviations.</li>
-            <li>Enabled voice-controlled navigation with a machine learning-based voice command classifier using SVD and PCA, achieving 95%+ classification accuracy.</li>
+            <li>Accurate voice classification using SVD and PCA for dimensionality reduction.</li>
+            <li>Implemented centroid-based clustering for robust command recognition.</li>
+            <li>Enhanced trajectory precision with closed-loop control for real-time path correction.</li>
+            <li>Integrated hardware and software systems for a seamless user experience.</li>
           </ul>
 
-          <h3>Tech Stack</h3>
-          <ul>
-            <li><strong>Programming Languages:</strong> C++, Python</li>
-            <li><strong>Tools and Libraries:</strong> Arduino, NumPy</li>
-            <li><strong>Machine Learning Techniques:</strong> Singular Value Decomposition (SVD), Principal Component Analysis (PCA)</li>
-            <li><strong>Hardware:</strong> Arduino microcontroller, Motor encoders</li>
-          </ul>
-
-          <h3>Implementation</h3>
+          <h3>Data Collection & Preprocessing</h3>
           <p>
-            <strong>Navigation Stability:</strong> Applied least squares regression and linear regression to motor encoder data to minimize velocity differences between wheels, improving overall stability and ensuring smoother movement.<br>
-            <strong>Trajectory Correction:</strong> Designed a closed-loop feedback system that used real-time encoder data to correct deviations caused by external disturbances, ensuring precise path following.<br>
-            <strong>Voice Recognition:</strong> Developed a machine learning-based voice command classifier using SVD and PCA to process and categorize voice inputs, enabling intuitive control with high accuracy.
+            Voice data was collected using a microphone setup, sampling commands under varied conditions. Preprocessing steps included:
+          </p>
+          <ul>
+            <li><strong>Enveloping:</strong> Detected the amplitude envelope of audio signals to isolate key features of the voice commands.</li>
+            <li><strong>Normalization:</strong> Scaled audio signals to a uniform range to ensure consistency across samples.</li>
+            <li><strong>Demeaning:</strong> Subtracted the mean from each feature dimension, centering the data around the origin for PCA.</li>
+          </ul>
+
+          <h3>Dimensionality Reduction with SVD and PCA</h3>
+          <p>
+            To reduce the high dimensionality of the audio data:
+          </p>
+          <ul>
+            <li><strong>Singular Value Decomposition (SVD):</strong> Decomposed the data matrix into orthogonal components to extract key features efficiently.</li>
+            <li><strong>Principal Component Analysis (PCA):</strong> Identified the top three principal components that captured the most variance, significantly reducing computational complexity while retaining essential information.</li>
+            <li>The reduced dataset was projected into the PCA basis, enabling effective visualization and clustering.</li>
+          </ul>
+
+          <h3>Clustering and Classification</h3>
+          <p>
+            Centroid-based clustering was employed to classify the commands:
+          </p>
+          <ul>
+            <li>For each command, centroids were computed by averaging feature vectors in the reduced PCA space.</li>
+            <li>Test samples were classified by calculating the Euclidean distance to each centroid, assigning the closest one.</li>
+            <li>Achieved 100% accuracy on test samples, demonstrating the reliability of the clustering method.</li>
+          </ul>
+
+          <h3>Model Enhancement</h3>
+          <p>
+            To further improve classification accuracy:
+          </p>
+          <ul>
+            <li>Outliers were removed from the training dataset to reduce noise in the clustering process.</li>
+            <li>Experimented with different numbers of principal components to balance accuracy and computational efficiency.</li>
+            <li>Introduced an additional noise filtering step to handle environmental disturbances during real-time classification.</li>
+          </ul>
+
+          <h3>Car Control Integration</h3>
+          <p>
+            The classified commands controlled the car as follows:
+          </p>
+          <ul>
+            <li><strong>"Congrats":</strong> Drive straight (long).</li>
+            <li><strong>"Stop":</strong> Drive straight (short).</li>
+            <li><strong>"Unicorn":</strong> Turn left.</li>
+            <li><strong>"Roni":</strong> Turn right.</li>
+          </ul>
+          <p>
+            The closed-loop control system used encoder feedback to correct deviations from the intended trajectory, ensuring precise execution of commands.
           </p>
 
           <h3>Challenges and Solutions</h3>
           <ul>
             <li>
-              <strong>Challenge:</strong> Achieving consistent and stable navigation under varying conditions.<br>
-              <strong>Solution:</strong> Used real-time encoder feedback to dynamically adjust motor speed and correct deviations.
+              <strong>Challenge:</strong> Handling variability in voice samples.<br>
+              <strong>Solution:</strong> Applied normalization and SVD to extract consistent features across samples.
             </li>
             <li>
-              <strong>Challenge:</strong> Reliable voice command recognition in noisy environments.<br>
-              <strong>Solution:</strong> Preprocessed audio signals and employed SVD and PCA for robust feature extraction, improving classification accuracy.
+              <strong>Challenge:</strong> Noise interference during real-time classification.<br>
+              <strong>Solution:</strong> Integrated noise filtering and enhanced centroid computation for robustness.
+            </li>
+            <li>
+              <strong>Challenge:</strong> Maintaining stability in car control.<br>
+              <strong>Solution:</strong> Implemented a feedback-based closed-loop system with error correction.
             </li>
           </ul>
 
           <h3>Results</h3>
           <ul>
-            <li>Achieved <strong>98% navigation stability</strong>, ensuring consistent and reliable movement.</li>
-            <li>Reduced wheel velocity difference to <strong>2%</strong>, minimizing drift and improving path accuracy.</li>
-            <li>Enabled intuitive user control with a voice command classification accuracy of <strong>95%+</strong>.</li>
+            <li><strong>Classification Accuracy:</strong> Achieved 100% accuracy on test samples with reliable real-time performance.</li>
+            <li><strong>Trajectory Precision:</strong> Closed-loop control reduced path deviations and maintained stable motion.</li>
+            <li><strong>Integration Success:</strong> Seamless coordination between classification and car control systems.</li>
           </ul>
 
           <h3>Showcase</h3>
           <ul>
             <li><a href="https://github.com/CalEricMa/Voice-Command-Controlled-Car" target="_blank">GitHub Repository</a></li>
+            <li><a href="https://docs.google.com/document/d/1Q8iVEcDkzw9bt3oLv476VXFKeOwhCbgj1867de3cTv4/edit?usp=sharing" target="_blank">Project Writeup</a></li>
+            <li><a href="https://drive.google.com/file/d/1SJVnWnzVTH7FMf-rXGeJmzTC_9PQmC9t/view" target="_blank">Video Demo</a></li>
           </ul>
         </article>
     </div>
