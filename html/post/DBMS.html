@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Ma - Thoughts</title>
+  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="profile-pic">
+        <img src="../../pic/profile.jpg" alt="Eric Ma">
+      </div>
+      <div class="side-menu">
+        <ul>
+          <li><a href="../../index.html">About</a></li>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#education">Education</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../index.html#skills">Skills</a></li>
+          <li><a href="../thoughts.html">Thoughts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">
+        <h2>Database Management System (RookieDB)</h2>
+        <br>
+        <article>
+          <p>
+            RookieDB is a fully functional relational database engine built from scratch in Java as part of a semester-long course project at UC Berkeley (CS186). It covers core DBMS components including storage, indexing, query execution, join optimization, concurrency control, and crash recovery.
+          </p>
+      
+          <h3>Key Features</h3>
+          <ul>
+            <li>Support for B+ Tree indexing with dynamic node splitting and merging.</li>
+            <li>Join processing via multiple algorithms: Simple Nested Loop Join (SNLJ), Block Nested Loop Join (BNLJ), and Grace Hash Join (GHJ).</li>
+            <li>Dynamic programming-based cost-based join planner for optimal query execution.</li>
+            <li>Multi-granularity locking and two-phase locking (2PL) for safe concurrency.</li>
+            <li>Crash recovery system using write-ahead logging, checkpoints, and rollback.</li>
+          </ul>
+      
+          <h3>Tech Stack</h3>
+          <ul>
+            <li><strong>Programming Language:</strong> Java</li>
+            <li><strong>System Components:</strong> B+ Trees, Concurrency Control, Logging, Recovery</li>
+            <li><strong>Algorithms:</strong> SNLJ, BNLJ, GHJ, Dynamic Programming (Join Planning)</li>
+          </ul>
+      
+          <h3>Implementation</h3>
+          <p>
+            RookieDB is designed with modularity in mind, with separate components for storage management, indexing, and transaction processing. The B+ Tree implementation supports efficient inserts, deletes, and range queries. The query planner selects join strategies based on estimated cost using a dynamic programming algorithm. Concurrency is handled via multi-granularity 2PL, and crash recovery is enabled through logging and checkpoints.
+          </p>
+      
+          <h3>Challenges and Solutions</h3>
+          <ul>
+            <li>
+              <strong>Challenge:</strong> Supporting concurrent transactions without introducing deadlocks.<br>
+              <strong>Solution:</strong> Implemented multigranularity 2PL with waits-for graph cycle detection and rollback logic.
+            </li>
+            <li>
+              <strong>Challenge:</strong> Join performance across large datasets.<br>
+              <strong>Solution:</strong> Engineered and benchmarked multiple join algorithms and integrated a cost-based planner.
+            </li>
+            <li>
+              <strong>Challenge:</strong> Debugging tightly coupled subsystems.<br>
+              <strong>Solution:</strong> Refactored architecture for modularity and introduced integration testing at the subsystem level.
+            </li>
+          </ul>
+      
+          <h3>Results</h3>
+          <ul>
+            <li>Improved query performance by <strong>80%</strong> with B+ Tree indexing and optimized join plans.</li>
+            <li>Increased transactional throughput by <strong>70%</strong> after concurrency and recovery optimizations.</li>
+            <li>Handled complex transactions with crash recovery guarantees and modular system design.</li>
+          </ul>
+      
+          <h3>Showcase</h3>
+          <ul>
+            <li><a href="https://github.com/CalEricMa/rookiedb" target="_blank">GitHub Repository</a></li>
+            <!-- Optional: Add a blog post or design doc link here -->
+          </ul>
+        </article>
+      </div>
+      
+  </div>
+</body>
+</html>
