@@ -52,11 +52,20 @@
   let last = 0;
   let pull = null; // { w, h, startX, startY, dx, dy, moved, id }
 
+  const failSetup = () => {
+    gl = null;
+    canvas = null;
+    return false;
+  };
+
   const setupGL = () => {
     canvas = document.createElement('canvas');
     canvas.setAttribute('aria-hidden', 'true');
     gl = canvas.getContext('webgl', { alpha: false, antialias: true });
-    if (!gl) return false;
+    if (!gl) {
+      canvas = null;
+      return false;
+    }
 
     const compile = (type, source) => {
       const shader = gl.createShader(type);
@@ -68,7 +77,7 @@
     gl.attachShader(program, compile(gl.VERTEX_SHADER, 'attribute vec2 p;attribute vec2 u;varying vec2 v;void main(){v=u;gl_Position=vec4(p.x*2.-1.,1.-p.y*2.,0.,1.);}'));
     gl.attachShader(program, compile(gl.FRAGMENT_SHADER, 'precision mediump float;uniform sampler2D t;varying vec2 v;void main(){gl_FragColor=texture2D(t,v);}'));
     gl.linkProgram(program);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return false;
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return failSetup();
     gl.useProgram(program);
 
     positionBuffer = gl.createBuffer();
@@ -112,8 +121,19 @@
     try {
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
     } catch (e) {
-      return false;
+      return failSetup();
     }
+    // Mobile browsers can drop the GL context (tab in the background, Back button, low memory): fall back to the plain photo, then rebuild.
+    canvas.addEventListener('webglcontextlost', (e) => {
+      e.preventDefault();
+      disable();
+    });
+    canvas.addEventListener('webglcontextrestored', () => {
+      canvas.remove();
+      canvas = null;
+      gl = null;
+      apply();
+    });
     return true;
   };
 
@@ -293,6 +313,12 @@
   }
 
   reduced.addEventListener('change', apply);
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted && live) {
+      resize();
+      draw();
+    }
+  });
   window.addEventListener('resize', () => {
     if (live) {
       resize();
@@ -323,4 +349,44 @@
     { rootMargin: '-40% 0px -55% 0px' }
   );
   byId.forEach((_, id) => observer.observe(document.getElementById(id)));
+})();
+
+// Eased scroll for in-page links, scaled to distance. Instant under prefers-reduced-motion;
+// without script the CSS scroll-behavior still applies.
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let frame = 0;
+  const cancel = () => {
+    cancelAnimationFrame(frame);
+    frame = 0;
+  };
+  ['wheel', 'touchstart', 'keydown'].forEach((type) => window.addEventListener(type, cancel, { passive: true }));
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+    if (!target || reduced.matches) return;
+    e.preventDefault();
+    cancel();
+
+    const offset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    const from = window.scrollY;
+    const to = Math.max(0, Math.min(target.getBoundingClientRect().top + from - offset, document.documentElement.scrollHeight - innerHeight));
+    const distance = to - from;
+    const duration = Math.min(900, Math.max(450, 350 + Math.abs(distance) * 0.25));
+    const start = performance.now();
+    const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      window.scrollTo({ top: from + distance * ease(t), behavior: 'instant' });
+      frame = t < 1 ? requestAnimationFrame(tick) : 0;
+    };
+    frame = requestAnimationFrame(tick);
+
+    history.pushState(null, '', link.hash);
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+  });
 })();

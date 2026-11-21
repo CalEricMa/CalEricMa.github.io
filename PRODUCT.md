@@ -16,7 +16,7 @@ Primary: recruiters and hiring managers who skim for Eric's current role and imp
 Personal resume/portfolio site for Eric Ma, a Software Development Engineer at Amazon (applied ML systems and backend). It presents his experience, projects, education, skills and writing, and gets visitors to contact him. Success is a memorable, clean page where the experience is readable in one pass.
 
 ## Positioning
-One quiet page with exactly one eye-catching feature: the profile photo is a hang tag on a string that the visitor can drag, click or tap to swing, and it settles. Everything else stays calm so the tag is the only thing that moves.
+One bold colour field and one toy: the profile photo is a rubber sheet the visitor can grab and pull, and it wobbles back. It sits on a full-width indigo hero band under a sticky nav. Everything else is a quiet, ruled spec sheet, so the portrait is the only thing that moves.
 
 ## Operating Context
 Redesign of an existing live site (blue fixed sidebar, round photo, sections About, Experience, Education, Projects, Skills, Thoughts). Content carries over; the layout and look are replaced. The visitor often arrives from a resume or LinkedIn link, on desktop or phone.
@@ -25,7 +25,7 @@ Redesign of an existing live site (blue fixed sidebar, round photo, sections Abo
 - Sections: hero, Experience, Projects, Education, Skills, Thoughts (blog, existing `html/thoughts.html` and `html/post/`). Navigation: Experience, Projects, Thoughts, Resume.
 - Thoughts and post pages are restyled in the same pass: they all load the shared `style.css`.
 - Projects featured: Dropbox Clone with End-to-End Encryption, Voice Command Controlled Car, Adversarial Attack Detection with Lasso Regression (owner delegated the pick).
-- Tag: drag with mouse or touch, string physics, settles; click, tap, Enter or Space also swing it; `prefers-reduced-motion` falls back to a static photo.
+- Portrait: pull with mouse or touch and it stretches and wobbles back; click, tap, Enter or Space also make it wobble; `prefers-reduced-motion` (or no WebGL) falls back to the plain photo. Navigation is a sticky bar with the current section marked.
 - Headline: Software Engineer · Applied ML Systems & Backend.
 - Contact: ericma0828@icloud.com, linkedin.com/in/eric-ma-ba7052212, github.com/CalEricMa. No phone number on the public page.
 - Decision: the Amazon bullets are used as written in the draft resume, including specific metrics and architecture; the owner confirmed Amazon allows it.
@@ -40,9 +40,10 @@ Redesign of an existing live site (blue fixed sidebar, round photo, sections Abo
 
 ## Product Principles
 - Recruiter-first: current role and impact are readable in the first scroll.
-- One moving thing: the tag is the only expressive element; the rest is plain and calm.
+- One moving thing: the portrait is the only expressive element; the rest is plain and calm.
+- Less is more: Amazon in full, everything else condensed or one click away.
 - Real content only: carry over existing copy and mark gaps, never invent claims.
 - Works everywhere: fast on GitHub Pages, usable on touch, readable with reduced motion.
 
 ## Accessibility & Inclusion
-Respect `prefers-reduced-motion` (static photo, no physics, no on-page override). The tag must not be required to reach any content. Keyboard and screen-reader users get the same information as everyone else.
+Respect `prefers-reduced-motion` (static photo, no physics, no on-page override). The portrait must not be required to reach any content. Keyboard and screen-reader users get the same information as everyone else.

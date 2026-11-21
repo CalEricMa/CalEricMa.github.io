@@ -352,7 +352,7 @@ strong {
 }
 
 .portrait-hint {
-  display: none;
+  visibility: hidden;
   margin: 0.7rem 0 0;
   color: var(--on-accent-2);
   font-family: var(--mono);
@@ -361,7 +361,7 @@ strong {
 }
 
 .portrait.is-live + .portrait-hint {
-  display: block;
+  visibility: visible;
 }
 
 /* Light sections */
@@ -592,7 +592,14 @@ strong {
   }
 
   .top nav a {
+    padding-block: 0.6rem;
     font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .top nav ul {
+    gap: 0.25rem 0.8rem;
   }
 }
 

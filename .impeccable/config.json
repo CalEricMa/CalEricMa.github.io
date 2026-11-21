@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-21T09:30:17.179Z",
+        "reason": "Ruled hairline rows with 0.9-1.75rem vertical padding and no box; two independent finish reviewers judged it a false positive (build owner decision pending, not user-confirmed)"
+      }
+    ]
+  }
+}

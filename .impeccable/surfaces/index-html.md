@@ -33,4 +33,4 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 - Updated resume PDF: owner to supply before launch.
 - LLM-agent users/eval metric: owner to add when real numbers exist.
 - Site location: clone `CalEricMa/CalEricMa.github.io` into workspace/personal-website/ and work on a branch; move PRODUCT.md and .impeccable/ in with it and re-check paths.
-- Profile photo: source copied to `.impeccable/assets/profile-source.png` (1.27 MB PNG); export 600px and 1200px JPEG/WebP, each under about 150 KB, served with `srcset`.
+- Profile photo: exported to `pic/profile-600.jpg` and `pic/profile-896.jpg` (source is 896px wide, so no 1200px export); served with `srcset`.
