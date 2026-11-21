@@ -185,7 +185,7 @@ Sticky, indigo, 3.5rem tall, no border. Brand mark (700, -0.01em) then Experienc
 The hero's table, on the band. Mono uppercase Band Mist label on the left; value on the right (strong 1.1875rem, with the 1.375rem/800 company name) and a Band Mist 0.9375rem sub-line. Rules are Band Hairline.
 
 ### Entries (`.entry`, `.entries`)
-Used for Experience, Projects, Education and Skills. Mono Soft Ink date or label in the side column; title (650), organisation (Soft Ink, with the bold company name), optional note (0.9375rem, 68ch) and bullets (1.1rem indent). Only the current role has a larger title.
+Used for Experience, Projects, Education and Skills. Mono Soft Ink date or label in the side column; title (650), organisation (Soft Ink, with the bold company name), optional note (0.9375rem, 68ch), a one-line summary and, in the collapsed older roles, bullets (1.1rem indent). Only the current role has a larger title.
 
 ### Older-role rows
 Native `details`/`summary`: a single line of title (1.0625rem) and Soft Ink org, pointer cursor; opening adds the notes beneath.

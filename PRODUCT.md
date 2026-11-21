@@ -28,8 +28,8 @@ Redesign of an existing live site (blue fixed sidebar, round photo, sections Abo
 - Portrait: pull with mouse or touch and it stretches and wobbles back; click, tap, Enter or Space also make it wobble; `prefers-reduced-motion` (or no WebGL) falls back to the plain photo. Navigation is a sticky bar with the current section marked.
 - Headline: Software Engineer · Applied ML Systems & Backend.
 - Contact: ericma0828@icloud.com, linkedin.com/in/eric-ma-ba7052212, github.com/CalEricMa. No phone number on the public page.
-- Decision: the Amazon bullets are used as written in the draft resume, including specific metrics and architecture; the owner confirmed Amazon allows it.
-- Decision: the LLM-agent bullet ships without a metric; the TODO lives in an HTML comment, not on the page. Do not invent numbers.
+- Decision: the Amazon role is one line on the site: "I build the planning systems that help Amazon delivery stations around the world staff their days." The detailed bullets and metrics stay on the resume PDF only (owner decision).
+- Do not add Amazon metrics or architecture to the site without the owner asking; none are needed now.
 - Old "graduating spring 2025" copy is out of date and is dropped.
 
 ## Evidence on Hand
