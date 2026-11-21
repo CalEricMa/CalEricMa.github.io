@@ -7,7 +7,6 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const GRAVITY_OVER_LENGTH = 10.5; // (rad/s)^2, about a 2 s period
   const DAMPING = 3.4; // 1/s, settles in about 3 s
-  const MAX_ANGLE = 1.05; // rad, about 60 degrees
   const NUDGE = 2.2; // rad/s from a click or key press
 
   let theta = 0;
@@ -19,6 +18,13 @@
   let nudgeDirection = 1;
 
   const clamp = (value, limit) => Math.max(-limit, Math.min(limit, value));
+  // Narrower swing on wide screens so the tag does not sweep across the contact controls.
+  const maxAngle = () => (innerWidth >= 760 ? 0.45 : 0.8);
+  const limitSwing = () => {
+    const max = maxAngle();
+    const energy = theta * theta + (omega * omega) / GRAVITY_OVER_LENGTH;
+    if (energy > max * max) omega = Math.sign(omega) * Math.sqrt(Math.max(0, (max * max - theta * theta) * GRAVITY_OVER_LENGTH));
+  };
   const render = () => {
     hang.style.transform = theta ? `rotate(${theta}rad)` : '';
   };
@@ -56,7 +62,7 @@
   // Positive rotation swings the tag to the left, so the angle is measured from the pivot with x negated.
   const angleTo = (x, y) => {
     const p = pivotPoint();
-    return clamp(Math.atan2(-(x - p.left), Math.max(y - p.top, 24)), MAX_ANGLE);
+    return clamp(Math.atan2(-(x - p.left), Math.max(y - p.top, 24)), maxAngle());
   };
 
   const release = () => {
@@ -95,6 +101,7 @@
     } else {
       omega = clamp(omega, 4);
     }
+    limitSwing();
     release();
   });
 
@@ -107,6 +114,7 @@
     e.preventDefault();
     nudgeDirection = -nudgeDirection;
     omega = clamp(omega + nudgeDirection * NUDGE, 5);
+    limitSwing();
     wake();
   });
 
