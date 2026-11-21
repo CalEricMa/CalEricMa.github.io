@@ -62,6 +62,10 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -207,6 +211,7 @@ strong {
   font-size: clamp(1.0625rem, 0.5vw + 0.95rem, 1.375rem);
   font-weight: 500;
   line-height: 1.3;
+  text-wrap: balance;
 }
 
 .place {
@@ -268,6 +273,10 @@ strong {
 
 .band a {
   color: var(--on-accent);
+}
+
+.actions a:not(.btn) {
+  padding-block: 0.55rem;
 }
 
 .btn {
@@ -426,13 +435,6 @@ strong {
   font-size: 1.125rem;
 }
 
-.entry-note {
-  max-width: 68ch;
-  margin: 0.6rem 0 0;
-  color: var(--ink-2);
-  font-size: 0.9375rem;
-}
-
 .entry-line {
   max-width: 68ch;
   margin: 0.3rem 0 0;
@@ -446,10 +448,6 @@ strong {
 .entry li {
   max-width: 68ch;
   margin: 0.5rem 0;
-}
-
-.entry dd {
-  margin: 0;
 }
 
 .entry .more {
@@ -476,6 +474,7 @@ strong {
 }
 
 .entry summary {
+  padding-block: 0.3rem;
   cursor: pointer;
 }
 
@@ -493,11 +492,6 @@ strong {
   margin-bottom: 0.2rem;
 }
 
-.lede {
-  max-width: 60ch;
-  margin: 0 0 1rem;
-}
-
 .foot {
   display: flex;
   flex-wrap: wrap;
@@ -505,7 +499,7 @@ strong {
   gap: 0.5rem 1.5rem;
   margin-top: clamp(4rem, 9vw, 6rem);
   padding-block: 1.5rem 3rem;
-  border-top: 1px solid var(--rule);
+  background: linear-gradient(var(--rule), var(--rule)) center top / calc(100% - 2 * var(--gutter)) 1px no-repeat;
   color: var(--ink-2);
   font-size: 0.9375rem;
 }
@@ -539,6 +533,10 @@ strong {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.025em;
+}
+
+.prose h1 + br {
+  display: none;
 }
 
 .prose h2 {
@@ -635,7 +633,7 @@ strong {
   }
 
   .portrait-wrap {
-    justify-self: center;
+    justify-self: end;
     width: var(--portrait-w);
   }
 
@@ -648,8 +646,3 @@ strong {
   }
 }
 
-@media (min-width: 720px) {
-  .entry {
-    grid-template-columns: 10.5rem minmax(0, 1fr);
-  }
-}

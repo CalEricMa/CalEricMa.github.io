@@ -140,9 +140,12 @@
   const resize = () => {
     if (!canvas) return;
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(frame.clientWidth * ratio);
-    canvas.height = Math.round(frame.clientHeight * ratio);
-    gl.viewport(0, 0, canvas.width, canvas.height);
+    const width = Math.round(frame.clientWidth * ratio);
+    const height = Math.round(frame.clientHeight * ratio);
+    if (canvas.width === width && canvas.height === height) return; // phones fire resize as the URL bar moves; resizing clears the buffer
+    canvas.width = width;
+    canvas.height = height;
+    gl.viewport(0, 0, width, height);
   };
 
   const draw = () => {
@@ -385,7 +388,7 @@
     };
     frame = requestAnimationFrame(tick);
 
-    history.pushState(null, '', link.hash);
+    history[location.hash === link.hash ? 'replaceState' : 'pushState'](null, '', link.hash);
     target.setAttribute('tabindex', '-1');
     target.focus({ preventScroll: true });
   });
