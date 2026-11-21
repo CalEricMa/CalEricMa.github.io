@@ -19,7 +19,7 @@
 
   const clamp = (value, limit) => Math.max(-limit, Math.min(limit, value));
   // Narrower swing on wide screens so the tag does not sweep across the contact controls.
-  const maxAngle = () => (innerWidth >= 760 ? 0.45 : 0.8);
+  const maxAngle = () => (innerWidth >= 760 ? 0.45 : 0.65);
   const limitSwing = () => {
     const max = maxAngle();
     const energy = theta * theta + (omega * omega) / GRAVITY_OVER_LENGTH;

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T00:00:00Z",
+  "title": "Design System: Eric Ma Personal Site",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Card-Stock Grey", "canonical": "#e7e8e4", "tonalRamp": ["#2a2b28", "#4a4c47", "#6d6f69", "#8f918b", "#b0b2ac", "#c9cac5", "#e7e8e4", "#f5f5f2"] },
+      "card": { "role": "neutral", "displayName": "Tag Card", "canonical": "#f5f5f2", "tonalRamp": ["#2c2c2a", "#4f4f4c", "#747471", "#999996", "#bdbdba", "#d8d8d5", "#ebebe8", "#f5f5f2"] },
+      "ink": { "role": "neutral", "displayName": "Press Ink", "canonical": "#161616", "tonalRamp": ["#161616", "#2b2b2b", "#424242", "#5b5b5b", "#767676", "#939393", "#b3b3b3", "#d4d4d4"] },
+      "ink-2": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#4e514b", "tonalRamp": ["#1f211e", "#33352f", "#4e514b", "#686b64", "#82857e", "#9d9f99", "#b9bbb6", "#d6d7d3"] },
+      "accent": { "role": "primary", "displayName": "Ledger Indigo", "canonical": "#22356b", "tonalRamp": ["#0e1630", "#16244a", "#22356b", "#3a4f8c", "#5c70a8", "#8493c2", "#aeb8da", "#d6dbee"] },
+      "accent-deep": { "role": "primary", "displayName": "Indigo Deep", "canonical": "#1a2956", "tonalRamp": ["#0a1028", "#121c3e", "#1a2956", "#2f4277", "#51649a", "#7b8bb9", "#a9b3d5", "#d3d8ec"] },
+      "string": { "role": "tertiary", "displayName": "Cotton String", "canonical": "#b9a98a", "tonalRamp": ["#3a3326", "#5c523d", "#7e7155", "#9d8e6f", "#b9a98a", "#cdc0a7", "#e0d7c4", "#efeadf"] },
+      "rule": { "role": "neutral", "displayName": "Hairline", "canonical": "rgba(22, 22, 22, 0.22)", "tonalRamp": ["rgba(22,22,22,0.9)", "rgba(22,22,22,0.7)", "rgba(22,22,22,0.5)", "rgba(22,22,22,0.35)", "rgba(22,22,22,0.22)", "rgba(22,22,22,0.14)", "rgba(22,22,22,0.08)", "rgba(22,22,22,0.04)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The name in the hero only." },
+      "headline": { "displayName": "Headline", "purpose": "Home section headings." },
+      "title": { "displayName": "Title", "purpose": "Entry titles and post h3; the current role steps up to 1.5rem." },
+      "body": { "displayName": "Body", "purpose": "Running text, capped near 68ch." },
+      "label": { "displayName": "Label", "purpose": "Mono spec labels (uppercase) and entry dates." }
+    },
+    "shadows": [
+      { "name": "tag-lift", "value": "filter: drop-shadow(0 0.5rem 0.6rem rgba(22, 22, 22, 0.24)) drop-shadow(0 1px 0 rgba(22, 22, 22, 0.18))", "purpose": "The hang tag only (a filter on .tag, so it follows the chamfer and leaves the focus ring unclipped); the one raised object." }
+    ],
+    "motion": [
+      { "name": "tag-pendulum", "value": "gravity/length 10.5 s^-2, damping 3.4 s^-1, nudge 2.2 rad/s, rAF, stops at rest", "purpose": "Damped pendulum swing of the tag; about 2 s period, settles in about 3 s. Static under prefers-reduced-motion: reduce." },
+      { "name": "tag-swing-limit", "value": "0.65 rad below 760px, 0.45 rad from 760px", "purpose": "Keeps the tag clear of the contact controls." },
+      { "name": "smooth-scroll", "value": "scroll-behavior: smooth", "purpose": "Anchor navigation, only under prefers-reduced-motion: no-preference." }
+    ],
+    "breakpoints": [
+      { "name": "narrow-nav", "value": "520px" },
+      { "name": "entries-stack", "value": "720px" },
+      { "name": "desktop-hero", "value": "760px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Primary action (Email).",
+      "html": "<a class=\"ds-btn ds-btn-solid\" href=\"#\">Email</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border:1.5px solid var(--accent,#22356b);border-radius:.375rem;color:var(--accent,#22356b);font:600 .9375rem system-ui,sans-serif;text-decoration:none}.ds-btn-solid{background:var(--accent,#22356b);color:var(--card,#f5f5f2)}.ds-btn-solid:hover{background:#1a2956}.ds-btn:focus-visible{outline:2px solid var(--accent,#22356b);outline-offset:3px;border-radius:2px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action (Resume).",
+      "html": "<a class=\"ds-btn ds-btn-outline\" href=\"#\">Resume</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border:1.5px solid var(--accent,#22356b);border-radius:.375rem;color:var(--accent,#22356b);font:600 .9375rem system-ui,sans-serif;text-decoration:none}.ds-btn-outline:hover{background:rgba(34,53,107,.09)}.ds-btn:focus-visible{outline:2px solid var(--accent,#22356b);outline-offset:3px;border-radius:2px}"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "description": "Four closed items; current item is indigo, 600, 2px underline, aria-current.",
+      "html": "<nav aria-label=\"Primary\"><ul class=\"ds-nav\"><li><a href=\"#\" aria-current=\"page\">Thoughts</a></li><li><a href=\"#\">Projects</a></li><li><a href=\"#\">Resume</a></li></ul></nav>",
+      "css": ".ds-nav{display:flex;gap:.25rem 1.5rem;margin:0;padding:0;list-style:none}.ds-nav a{display:inline-block;padding-block:.25rem;color:#161616;font:500 .9375rem system-ui,sans-serif;text-decoration:none}.ds-nav a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.35em}.ds-nav a[aria-current]{color:#22356b;font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.35em}.ds-nav a:focus-visible{outline:2px solid #22356b;outline-offset:3px;border-radius:2px}"
+    },
+    {
+      "name": "Spec Rows",
+      "kind": "custom",
+      "description": "Ruled mono-label and value rows; the home hero's spec sheet.",
+      "html": "<dl class=\"ds-spec\"><div><dt>Now</dt><dd><strong>Software Development Engineer I</strong><span class=\"ds-sub\">Amazon</span></dd></div><div><dt>School</dt><dd><strong>UC Berkeley</strong><span class=\"ds-sub\">B.S. EECS</span></dd></div></dl>",
+      "css": ".ds-spec{margin:0;border-top:1px solid rgba(22,22,22,.22);color:#161616;font:400 1.0625rem/1.6 system-ui,sans-serif}.ds-spec>div{display:grid;grid-template-columns:7rem minmax(0,1fr);column-gap:1rem;padding-block:.9rem;border-bottom:1px solid rgba(22,22,22,.22)}.ds-spec dt{padding-top:.25rem;color:#4e514b;font:600 .8125rem ui-monospace,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase}.ds-spec dd{margin:0}.ds-spec strong{font-weight:650}.ds-sub{display:block;color:#4e514b;font-size:.9375rem}"
+    },
+    {
+      "name": "Entry Row",
+      "kind": "custom",
+      "description": "Ruled date-column and content row for Experience, Projects, Education, Skills.",
+      "html": "<ol class=\"ds-entries\"><li class=\"ds-entry\"><p class=\"ds-side\">Jul 2025 – Present</p><div><h3>Software Development Engineer I</h3><p class=\"ds-org\">Amazon · Bellevue, WA</p></div></li></ol>",
+      "css": ".ds-entries{margin:0;padding:0;list-style:none;border-top:1px solid rgba(22,22,22,.22);color:#161616;font:400 1.0625rem/1.6 system-ui,sans-serif}.ds-entry{display:grid;grid-template-columns:10.5rem minmax(0,1fr);gap:.35rem 2rem;padding-block:1.5rem;border-bottom:1px solid rgba(22,22,22,.22)}.ds-side{margin:0;color:#4e514b;font:400 .8125rem ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}.ds-entry h3{margin:0;font-size:1.1875rem;font-weight:650;line-height:1.3}.ds-org{margin:.15rem 0 0;color:#4e514b}"
+    },
+    {
+      "name": "Hang Tag",
+      "kind": "custom",
+      "description": "Signature: photo tag on a tan string; a damped pendulum driven by script. Shown static here.",
+      "html": "<div class=\"ds-hang\"><span class=\"ds-string\"></span><div class=\"ds-tag\"><div class=\"ds-photo\"></div><p class=\"ds-hint\">Drag to swing</p></div></div>",
+      "css": ".ds-hang{width:9.5rem;margin:0 auto}.ds-string{display:block;width:3px;height:3rem;margin:0 auto;border-radius:2px;background:#b9a98a}.ds-tag{position:relative;isolation:isolate;margin:-1.2rem 0 0;padding:2.1rem .6rem .5rem;filter:drop-shadow(0 .5rem .6rem rgba(22,22,22,.24)) drop-shadow(0 1px 0 rgba(22,22,22,.18))}.ds-tag::after{content:\"\";position:absolute;inset:0;z-index:-1;background:#f5f5f2;border-radius:0 0 .5rem .5rem;clip-path:polygon(16% 0,84% 0,100% .9rem,100% 100%,0 100%,0 .9rem)}.ds-tag::before{content:\"\";position:absolute;top:.45rem;left:50%;width:1.5rem;height:1.5rem;margin-left:-.75rem;border-radius:50%;background:radial-gradient(circle,#e7e8e4 0 .36rem,rgba(22,22,22,.3) .36rem .44rem,#e3e3dd .44rem .72rem,transparent .75rem)}.ds-photo{aspect-ratio:2/3;border-radius:.25rem;background:#161616}.ds-hint{margin:.45rem 0 .1rem;color:#4e514b;font:400 .8125rem ui-monospace,Menlo,monospace;text-align:center}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Goods Tag",
+    "overview": "The profile photo is a tag on a string, and the page is the spec sheet it belongs to. The ground is uncoated card stock, the ink is near-black, and a single indigo does all the signalling. Structure comes from hairline rules and labelled rows, not boxes, cards or fills. With all content removed the page still reads as a tag and its spec table.\n\nThe page is calm so that exactly one thing can move: the tag. Nothing animates until the visitor acts; there is no scroll choreography, no hover motion, no second effect. Density is that of a printed form: narrow label column, generous row padding, text capped near 68ch.\n\nThe system uses the platform's own type (no web fonts, an owner decision) and no images beyond the photo.",
+    "keyCharacteristics": [
+      "Flat, ruled, label-and-value rows; hairlines are the only structural device.",
+      "One accent (indigo) for links, buttons, focus and the current nav item; tan only on the string.",
+      "System sans for text, system mono for labels and dates.",
+      "One physical object (the tag) with a damped-pendulum motion contract; everything else is static.",
+      "Same stylesheet serves home, Thoughts index and posts."
+    ],
+    "rules": [
+      { "name": "The One Indigo Rule", "body": "Indigo is the only chromatic colour besides the string. It carries interaction state (link, button, focus, current), never decoration.", "section": "colors" },
+      { "name": "The Never Colour Alone Rule", "body": "Indigo against ink is only 1.5:1, so links are underlined and the current nav item pairs indigo with a 2px underline and aria-current.", "section": "colors" },
+      { "name": "The String Is Tan Rule", "body": "Cotton tan appears on the string and nowhere else.", "section": "colors" },
+      { "name": "The Mono Is For Labels Rule", "body": "Mono marks a label or a date in a ruled row. It never sets running text or headings.", "section": "typography" },
+      { "name": "The Balanced Headings Rule", "body": "Headings use text-wrap: balance, paragraphs and list items text-wrap: pretty.", "section": "typography" },
+      { "name": "The One Object Rule", "body": "Only the tag has a shadow (a drop-shadow filter on .tag). A second shadowed element makes it no longer the one object.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do build new surfaces from hairline rules (1px, Hairline) and mono labels over sans values.",
+      "Do keep Indigo (#22356b) for interaction state and pair it with an underline or aria-current.",
+      "Do keep nothing moving except the tag, and keep reduced-motion users on the static photo.",
+      "Do size touch targets to 2.75rem and cap running text at 68ch.",
+      "Do keep the page on the system font stacks."
+    ],
+    "donts": [
+      "Don't add cards, filled panels, tinted backgrounds or additional shadows; the tag is the only raised object.",
+      "Don't use Cotton String (#b9a98a) off the string, or add a second chromatic accent.",
+      "Don't convey the current page or a link by colour alone.",
+      "Don't add web fonts, a second animated effect, or scroll-triggered motion.",
+      "Don't set body or headings in the mono face."
+    ]
+  }
+}
