@@ -26,6 +26,7 @@ Redesign of an existing live site (blue fixed sidebar, round photo, sections Abo
 - Thoughts and post pages are restyled in the same pass: they all load the shared `style.css`.
 - Projects featured: Dropbox Clone with End-to-End Encryption, Voice Command Controlled Car, Adversarial Attack Detection with Lasso Regression (owner delegated the pick).
 - Portrait: pull with mouse or touch and it stretches and wobbles back; click, tap, Enter or Space also make it wobble; `prefers-reduced-motion` (or no WebGL) falls back to the plain photo. Navigation is a sticky bar with the current section marked.
+- Theme: light and dark. It follows the system setting by default; a sun/moon button at the right of the sticky nav overrides it and the choice is remembered per browser. The indigo band and nav are the same in both themes.
 - Headline: Software Engineer · Applied ML Systems & Backend.
 - Contact: ericma0828@icloud.com, linkedin.com/in/eric-ma-ba7052212, github.com/CalEricMa. No phone number on the public page.
 - Decision: the Amazon role is one line by default ("I build the planning systems that help Amazon delivery stations around the world staff their days.") with the six detailed bullets and metrics behind a collapsed "Details" row (owner decision: compact by default, expandable). Bullets are used as written in the draft resume; the owner confirmed Amazon allows it.

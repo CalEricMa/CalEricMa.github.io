@@ -1,6 +1,6 @@
 ---
 name: Eric Ma Personal Site
-description: A full-width indigo hero band holding one stretchy portrait, over a ruled spec sheet on cool card-stock grey with near-black ink.
+description: A full-width indigo hero band holding one stretchy portrait, over a ruled spec sheet on cool card-stock grey with near-black ink, with a cool near-black dark theme under the same band.
 colors:
   ground: "#e7e8e4"
   card: "#f5f5f2"
@@ -12,6 +12,11 @@ colors:
   on-accent-2: "#c9d0ea"
   rule: "rgba(22, 22, 22, 0.22)"
   rule-on-accent: "rgba(245, 245, 242, 0.3)"
+  ground-dark: "#13151e"
+  ink-dark: "#e9ebf3"
+  ink-2-dark: "#a6adc2"
+  link-dark: "#a9b8ff"
+  rule-dark: "rgba(233, 235, 243, 0.2)"
 typography:
   display:
     fontFamily: "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif"
@@ -92,7 +97,8 @@ The system uses the platform's own type (no web fonts, an owner decision) and no
 
 **Key Characteristics:**
 - Indigo band (nav plus hero) over a flat, ruled grey sheet; hairlines are the only structural device below the band.
-- One hue (indigo) for the band, links, focus and selection; no second accent.
+- One hue (indigo) for the band, links, focus and selection; no second accent. In dark, links, focus and selection take a lighter tint of it.
+- Two themes, light and dark, switched by a nav button; the band, nav and everything on them are identical in both.
 - System sans for text, system mono for labels, dates and the portrait hint.
 - One toy: the WebGL rubber-sheet portrait. Everything else is static apart from link scrolling.
 - "Amazon" is the one bold company name.
@@ -103,7 +109,7 @@ The system uses the platform's own type (no web fonts, an owner decision) and no
 Cool grey-green card stock, near-black ink, and one deep indigo used both as a flood (the band) and as the interaction colour (links, focus).
 
 ### Primary
-- **Ledger Indigo** (#22356b): the hero band and sticky nav fill; on the light ground it is the link colour, focus ring, selection fill, caret and form accent. **Indigo Deep** (#1a2956) is defined as a token alongside it.
+- **Ledger Indigo** (#22356b): the hero band and sticky nav fill; on the light ground it is also the link colour, focus ring, selection fill, caret and form accent (through the `--link` and `--focus` tokens, both #22356b in light). **Indigo Deep** (#1a2956) is defined as a token alongside it.
 
 ### Neutral
 - **Card-Stock Grey** (#e7e8e4): page ground below the band.
@@ -114,12 +120,28 @@ Cool grey-green card stock, near-black ink, and one deep indigo used both as a f
 - **Hairline** (rgba(22,22,22,0.22)): every rule on the ground: entry rows, post list, footer.
 - **Band Hairline** (rgba(245,245,242,0.3)): the spec rows' rules on the band.
 
+### Dark theme
+
+`:root[data-theme="dark"]` (with `color-scheme: dark`) overrides only the ground-side tokens; the band, nav, Band Paper, Band Mist, Band Hairline, buttons and portrait are untouched.
+- **Midnight Ground** (#13151e): page ground, a cool near-black with a faint blue cast.
+- **Frost Ink** (#e9ebf3): primary text (about 15.3:1 on the ground).
+- **Dusk Ink** (#a6adc2): secondary text (about 8.1:1).
+- **Periwinkle Link** (#a9b8ff): links, focus ring and selection fill (about 9.5:1); the lighter tint of Ledger Indigo, since indigo itself is unreadable on the dark ground. Selection text is the ground colour.
+- **Dark Hairline** (rgba(233,235,243,0.2)): rules on the ground.
+- Scrollbar thumb #4a5068 (light: #9a9d96) on the ground colour.
+
+**How it is chosen.** `theme.js`, loaded in `<head>` on every page, sets `data-theme` on `<html>` before paint: the stored `localStorage` "theme" value if present, else the system `prefers-color-scheme`. It follows live system changes until the visitor picks. A nav button (`.theme-toggle`, 2.75rem, Band Paper sun/moon SVG, `aria-label` switching between "Switch to dark mode" and "Switch to light mode") flips and remembers the choice; it is hidden until the script adds `.has-theme`, and the choice lasts only for the session if storage is blocked.
+
+**What stays the same.** Layout, type, hairline structure, the indigo band and nav (same #22356b in both themes, so in dark the band is the lighter surface), band text colours, the portrait and its shadow, and the underline-not-colour link rule.
+
 ### Named Rules
-**The One Hue Rule.** Indigo is the only chromatic colour. On the band it is the surface; on the ground it marks interaction (link, focus, selection), never decoration.
+**The One Hue Rule.** Indigo is the only chromatic colour. On the band it is the surface in both themes; on the ground it marks interaction (link, focus, selection), never decoration, as Ledger Indigo in light and its lighter tint Periwinkle Link (#a9b8ff) in dark.
 
-**The Never Colour Alone Rule.** Links are underlined (1px, 2px on hover), and the current nav item is marked by weight 700 plus a 2px underline and `aria-current`, never by colour. Indigo against ink is only about 1.5:1.
+**The Never Colour Alone Rule.** Links are underlined (1px, 2px on hover), and the current nav item is marked by weight 700 plus a 2px underline and `aria-current`, never by colour. Indigo (or its dark-theme tint) against ink is only about 1.5:1.
 
-**The Band Text Rule.** Text on the band is Band Paper or Band Mist only, with the same two-step hierarchy as Press Ink and Soft Ink on the ground.
+**The Band Text Rule.** Text on the band is Band Paper or Band Mist only, in both themes, with the same two-step hierarchy as Press Ink and Soft Ink on the ground.
+
+**The Band Does Not Theme Rule.** Dark mode changes the ground, ink, rules and link tint only. The band and nav keep #22356b and their paper text; do not darken or invert them.
 
 ## Typography
 
@@ -156,7 +178,7 @@ Ruled rows: 1px Hairline top rule on the list, bottom rule per row, 1.25rem bloc
 
 Anchors clear the sticky nav via `scroll-padding-top` (nav height plus 1rem).
 
-Breakpoints: 360px (tighter nav gaps), 520px (phone nav: home mark hides, 0.875rem links with taller tap padding), 720px (entries stack/unstack), 760px (desktop hero). Vertical rhythm is rem-based with no spacing scale beyond the values above.
+Breakpoints: 340px (last nav item, Resume, hides; the hero has its own Resume button), 400px (header and nav gaps tighten, theme toggle shrinks to 2.25rem), 520px (phone nav: home mark hides, 0.875rem links with taller tap padding), 720px (entries stack/unstack), 760px (desktop hero). Vertical rhythm is rem-based with no spacing scale beyond the values above.
 
 ## Elevation & Depth
 
@@ -167,7 +189,7 @@ Flat. Below the band nothing has a shadow; depth is conveyed by hairlines and by
 
 ## Shapes
 
-Mostly square and ruled. Buttons have a restrained 0.375rem radius and a 1.5px Band Paper border. The portrait is the one large form: a 2:3 frame with 0.75rem corners, clipped, with a black backing. Focus rings are 2px outlines with a 3px offset and a 2px radius (Band Paper on the band and nav, Indigo on the ground; the portrait uses a 4px offset).
+Mostly square and ruled. Buttons have a restrained 0.375rem radius and a 1.5px Band Paper border. The portrait is the one large form: a 2:3 frame with 0.75rem corners, clipped, with a black backing. Focus rings are 2px outlines with a 3px offset and a 2px radius (Band Paper on the band and nav, Indigo (light) or Periwinkle (dark) on the ground; the portrait uses a 4px offset).
 
 ## Components
 
@@ -179,7 +201,7 @@ Mostly square and ruled. Buttons have a restrained 0.375rem radius and a 1.5px B
 - Actions sit in a flex row with 0.6rem/1.25rem gaps; other links in the row are plain underlined Band Paper links.
 
 ### Navigation
-Sticky, indigo, 3.5rem tall, no border. Brand mark (700, -0.01em) then Experience, Projects, Thoughts, Resume at 0.9375rem/500 in Band Paper, no underline at rest, 1px underline on hover. The current item is weight 700 with a 2px underline and `aria-current`: `location` set by scroll-spy on home (Experience or Projects), `page` on Thoughts and `true` on a post's parent link. On phones the mark hides and the links take the full row.
+Sticky, indigo, 3.5rem tall, no border. Brand mark (700, -0.01em) then Experience, Projects, Thoughts, Resume at 0.9375rem/500 in Band Paper, no underline at rest, 1px underline on hover, then the theme toggle pushed to the right edge (2.75rem square, 0.375rem radius, transparent with a 14% paper wash on hover). The current item is weight 700 with a 2px underline and `aria-current`: `location` set by scroll-spy on home (Experience or Projects), `page` on Thoughts and `true` on a post's parent link. On phones the mark hides and the links and toggle share the row.
 
 ### Spec Rows (`.spec`)
 The hero's table, on the band. Mono uppercase Band Mist label on the left; value on the right (strong 1.1875rem, with the 1.375rem/800 company name) and a Band Mist 0.9375rem sub-line. Rules are Band Hairline.
@@ -212,7 +234,8 @@ Links to anchors use a JS eased scroll, 450-900 ms scaled to distance, cancelled
 
 ### Do:
 - **Do** build new surfaces from hairline rules (1px) and mono labels over sans values, on the grey ground.
-- **Do** keep Indigo (#22356b) as the one hue: the band, links, focus and selection.
+- **Do** keep Indigo (#22356b) as the one hue: the band always, and links, focus and selection in light; use #a9b8ff for those on the dark ground.
+- **Do** build every new colour as a token with a dark value, and check ground-side text against the dark ground (#13151e).
 - **Do** put text on the band in Band Paper (#f5f5f2) or Band Mist (#c9d0ea) only.
 - **Do** pair every link and current-state signal with an underline, weight or `aria-current`.
 - **Do** keep reduced-motion users on the plain photo and instant scrolling.
@@ -225,3 +248,4 @@ Links to anchors use a JS eased scroll, 450-900 ms scaled to distance, cancelled
 - **Don't** convey the current page or a link by colour alone.
 - **Don't** set a second company name in heavier weight than Amazon's.
 - **Don't** set body or headings in the mono face, or add web fonts.
+- **Don't** theme the band, add a third theme, or use a second chromatic colour for dark mode.
