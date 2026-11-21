@@ -1,145 +1,304 @@
-// The photo tag: a damped pendulum. Drag, click/tap, or Enter/Space swing it.
+// The portrait is a rubber sheet: pull it anywhere and it stretches, then wobbles back.
+// A WebGL mesh draws the photo; a spring simulation moves the mesh. Without WebGL, or with
+// prefers-reduced-motion, the plain <img> stays.
 (() => {
-  const hang = document.querySelector('.hang');
-  const pivot = document.querySelector('.pivot');
-  if (!hang || !pivot) return;
+  const frame = document.querySelector('.portrait');
+  const img = frame && frame.querySelector('img');
+  if (!frame || !img) return;
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const GRAVITY_OVER_LENGTH = 10.5; // (rad/s)^2, about a 2 s period
-  const DAMPING = 3.4; // 1/s, settles in about 3 s
-  const NUDGE = 2.2; // rad/s from a click or key press
+  const NX = 14; // mesh cells across
+  const NY = 21; // mesh cells down
+  const STIFFNESS = 150; // pull back to rest
+  const DAMPING = 5; // lower = more wobble
+  const COUPLING = 40; // neighbours drag each other, which makes ripples
+  const GRIP = 380; // how hard the pointer holds the vertices it grabbed
+  const SIGMA = 0.2; // grab radius, as a fraction of the frame width
+  const MAX_PULL = 0.4; // furthest the pointer can pull, as a fraction of the frame
+  const POKE = 5; // speed of a click or key press wobble
 
-  let theta = 0;
-  let omega = 0;
-  let frame = 0;
-  let last = 0;
+  const cols = NX + 1;
+  const count = cols * (NY + 1);
+  const restX = new Float32Array(count);
+  const restY = new Float32Array(count);
+  const pin = new Float32Array(count); // 0 at the frame edge so the photo never leaves its frame
+  const offX = new Float32Array(count);
+  const offY = new Float32Array(count);
+  const velX = new Float32Array(count);
+  const velY = new Float32Array(count);
+  const grip = new Float32Array(count);
+  const accX = new Float32Array(count);
+  const accY = new Float32Array(count);
+  const positions = new Float32Array(count * 2);
+
+  const smoothstep = (a, b, x) => {
+    const t = Math.min(1, Math.max(0, (x - a) / (b - a)));
+    return t * t * (3 - 2 * t);
+  };
+  for (let j = 0; j <= NY; j++) {
+    for (let i = 0; i <= NX; i++) {
+      const k = j * cols + i;
+      restX[k] = i / NX;
+      restY[k] = j / NY;
+      pin[k] = smoothstep(0, 0.1, Math.min(restX[k], 1 - restX[k], restY[k], 1 - restY[k]));
+    }
+  }
+
+  let gl = null;
+  let canvas = null;
+  let positionBuffer = null;
   let live = false;
-  let drag = null;
-  let nudgeDirection = 1;
+  let frameId = 0;
+  let last = 0;
+  let pull = null; // { w, h, startX, startY, dx, dy, moved, id }
 
-  const clamp = (value, limit) => Math.max(-limit, Math.min(limit, value));
-  // Narrower swing on wide screens so the tag does not sweep across the contact controls.
-  const maxAngle = () => (innerWidth >= 760 ? 0.45 : 0.65);
-  const limitSwing = () => {
-    const max = maxAngle();
-    const energy = theta * theta + (omega * omega) / GRAVITY_OVER_LENGTH;
-    if (energy > max * max) omega = Math.sign(omega) * Math.sqrt(Math.max(0, (max * max - theta * theta) * GRAVITY_OVER_LENGTH));
-  };
-  const render = () => {
-    hang.style.transform = theta ? `rotate(${theta}rad)` : '';
-  };
+  const setupGL = () => {
+    canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    gl = canvas.getContext('webgl', { alpha: false, antialias: true });
+    if (!gl) return false;
 
-  const step = (now) => {
-    const dt = Math.min((now - last) / 1000, 1 / 30);
-    last = now;
-    if (!drag) {
-      const substeps = Math.max(1, Math.ceil(dt * 240));
-      const h = dt / substeps;
-      for (let i = 0; i < substeps; i++) {
-        omega += (-GRAVITY_OVER_LENGTH * Math.sin(theta) - DAMPING * omega) * h;
-        theta += omega * h;
-      }
-      if (Math.abs(theta) < 0.004 && Math.abs(omega) < 0.04) {
-        theta = 0;
-        omega = 0;
-        render();
-        frame = 0;
-        return;
+    const compile = (type, source) => {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      return shader;
+    };
+    const program = gl.createProgram();
+    gl.attachShader(program, compile(gl.VERTEX_SHADER, 'attribute vec2 p;attribute vec2 u;varying vec2 v;void main(){v=u;gl_Position=vec4(p.x*2.-1.,1.-p.y*2.,0.,1.);}'));
+    gl.attachShader(program, compile(gl.FRAGMENT_SHADER, 'precision mediump float;uniform sampler2D t;varying vec2 v;void main(){gl_FragColor=texture2D(t,v);}'));
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return false;
+    gl.useProgram(program);
+
+    positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, positions.byteLength, gl.DYNAMIC_DRAW);
+    const pLoc = gl.getAttribLocation(program, 'p');
+    gl.enableVertexAttribArray(pLoc);
+    gl.vertexAttribPointer(pLoc, 2, gl.FLOAT, false, 0, 0);
+
+    const uv = new Float32Array(count * 2);
+    for (let k = 0; k < count; k++) {
+      uv[k * 2] = restX[k];
+      uv[k * 2 + 1] = restY[k];
+    }
+    const uvBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, uvBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, uv, gl.STATIC_DRAW);
+    const uLoc = gl.getAttribLocation(program, 'u');
+    gl.enableVertexAttribArray(uLoc);
+    gl.vertexAttribPointer(uLoc, 2, gl.FLOAT, false, 0, 0);
+
+    const indices = new Uint16Array(NX * NY * 6);
+    let n = 0;
+    for (let j = 0; j < NY; j++) {
+      for (let i = 0; i < NX; i++) {
+        const a = j * cols + i;
+        indices.set([a, a + 1, a + cols, a + 1, a + cols + 1, a + cols], n);
+        n += 6;
       }
     }
-    render();
-    frame = requestAnimationFrame(step);
+    const indexBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indices, gl.STATIC_DRAW);
+
+    const texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    try {
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  };
+
+  const resize = () => {
+    if (!canvas) return;
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(frame.clientWidth * ratio);
+    canvas.height = Math.round(frame.clientHeight * ratio);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  };
+
+  const draw = () => {
+    for (let k = 0; k < count; k++) {
+      positions[k * 2] = restX[k] + offX[k] * pin[k];
+      positions[k * 2 + 1] = restY[k] + offY[k] * pin[k];
+    }
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferSubData(gl.ARRAY_BUFFER, 0, positions);
+    gl.drawElements(gl.TRIANGLES, NX * NY * 6, gl.UNSIGNED_SHORT, 0);
+  };
+
+  const step = (h) => {
+    for (let j = 0; j <= NY; j++) {
+      for (let i = 0; i <= NX; i++) {
+        const k = j * cols + i;
+        const l = i > 0 ? k - 1 : k;
+        const r = i < NX ? k + 1 : k;
+        const u = j > 0 ? k - cols : k;
+        const d = j < NY ? k + cols : k;
+        const avgX = (offX[l] + offX[r] + offX[u] + offX[d]) / 4;
+        const avgY = (offY[l] + offY[r] + offY[u] + offY[d]) / 4;
+        let ax = -STIFFNESS * offX[k] - DAMPING * velX[k] + COUPLING * (avgX - offX[k]);
+        let ay = -STIFFNESS * offY[k] - DAMPING * velY[k] + COUPLING * (avgY - offY[k]);
+        if (pull && grip[k] > 0.001) {
+          ax += GRIP * grip[k] * (pull.dx - offX[k]);
+          ay += GRIP * grip[k] * (pull.dy - offY[k]);
+        }
+        accX[k] = ax;
+        accY[k] = ay;
+      }
+    }
+    for (let k = 0; k < count; k++) {
+      velX[k] += accX[k] * h;
+      velY[k] += accY[k] * h;
+      offX[k] += velX[k] * h;
+      offY[k] += velY[k] * h;
+    }
+  };
+
+  const resting = () => {
+    for (let k = 0; k < count; k++) {
+      if (Math.abs(offX[k]) > 0.0004 || Math.abs(offY[k]) > 0.0004 || Math.abs(velX[k]) > 0.01 || Math.abs(velY[k]) > 0.01) return false;
+    }
+    return true;
+  };
+
+  const tick = (now) => {
+    const dt = Math.min((now - last) / 1000, 1 / 30);
+    last = now;
+    const substeps = Math.max(1, Math.ceil(dt * 240));
+    for (let s = 0; s < substeps; s++) step(dt / substeps);
+    if (!pull && resting()) {
+      offX.fill(0);
+      offY.fill(0);
+      velX.fill(0);
+      velY.fill(0);
+      draw();
+      frameId = 0;
+      return;
+    }
+    draw();
+    frameId = requestAnimationFrame(tick);
   };
 
   const wake = () => {
-    if (frame) return;
+    if (frameId) return;
     last = performance.now();
-    frame = requestAnimationFrame(step);
+    frameId = requestAnimationFrame(tick);
   };
 
-  const pivotPoint = () => pivot.getBoundingClientRect();
-
-  // Positive rotation swings the tag to the left, so the angle is measured from the pivot with x negated.
-  const angleTo = (x, y) => {
-    const p = pivotPoint();
-    return clamp(Math.atan2(-(x - p.left), Math.max(y - p.top, 24)), maxAngle());
+  // Vertices near the grab point follow the pointer most; the weight falls off with distance.
+  const setGrip = (u, v, w, h) => {
+    for (let k = 0; k < count; k++) {
+      const dx = (restX[k] - u) * w;
+      const dy = (restY[k] - v) * h;
+      grip[k] = Math.exp(-(dx * dx + dy * dy) / (2 * SIGMA * SIGMA * w * w)) * pin[k];
+    }
   };
 
-  const release = () => {
-    hang.classList.remove('is-dragging');
-    drag = null;
+  const poke = (u, v, w, h) => {
+    setGrip(u, v, w, h);
+    let dirX = 0.5 - u;
+    let dirY = 0.5 - v;
+    const len = Math.hypot(dirX, dirY) || 1;
+    dirX /= len;
+    dirY /= len;
+    for (let k = 0; k < count; k++) {
+      velX[k] += grip[k] * dirX * POKE;
+      velY[k] += grip[k] * dirY * POKE;
+    }
     wake();
   };
 
-  hang.addEventListener('pointerdown', (e) => {
+  frame.addEventListener('pointerdown', (e) => {
     if (!live || e.button !== 0) return;
-    drag = { id: e.pointerId, x: e.clientX, y: e.clientY, moved: false, t: e.timeStamp };
-    omega = 0;
-    hang.setPointerCapture(e.pointerId);
+    const rect = frame.getBoundingClientRect();
+    setGrip((e.clientX - rect.left) / rect.width, (e.clientY - rect.top) / rect.height, rect.width, rect.height);
+    pull = { w: rect.width, h: rect.height, startX: e.clientX, startY: e.clientY, dx: 0, dy: 0, moved: false, id: e.pointerId, u: (e.clientX - rect.left) / rect.width, v: (e.clientY - rect.top) / rect.height };
+    frame.setPointerCapture(e.pointerId);
   });
 
-  hang.addEventListener('pointermove', (e) => {
-    if (!drag || e.pointerId !== drag.id) return;
-    if (!drag.moved && Math.hypot(e.clientX - drag.x, e.clientY - drag.y) < 6) return;
-    if (!drag.moved) {
-      drag.moved = true;
-      hang.classList.add('is-dragging');
+  frame.addEventListener('pointermove', (e) => {
+    if (!pull || e.pointerId !== pull.id) return;
+    const moveX = e.clientX - pull.startX;
+    const moveY = e.clientY - pull.startY;
+    if (!pull.moved && Math.hypot(moveX, moveY) < 6) return;
+    if (!pull.moved) {
+      pull.moved = true;
+      frame.classList.add('is-pulling');
     }
-    const next = angleTo(e.clientX, e.clientY);
-    const dt = (e.timeStamp - drag.t) / 1000;
-    if (dt > 0) omega = 0.6 * omega + 0.4 * clamp((next - theta) / dt, 8);
-    drag.t = e.timeStamp;
-    theta = next;
-    render();
+    pull.dx = Math.max(-MAX_PULL, Math.min(MAX_PULL, moveX / pull.w));
+    pull.dy = Math.max(-MAX_PULL, Math.min(MAX_PULL, moveY / pull.h));
+    wake();
   });
 
-  hang.addEventListener('pointerup', (e) => {
-    if (!drag || e.pointerId !== drag.id) return;
-    if (!drag.moved) {
-      // A click pushes the tag away from the side that was clicked.
-      omega = e.clientX < pivotPoint().left ? -NUDGE : NUDGE;
-    } else {
-      omega = clamp(omega, 4);
-    }
-    limitSwing();
-    release();
-  });
+  const letGo = (e, wasClick) => {
+    if (!pull || e.pointerId !== pull.id) return;
+    const { u, v, w, h, moved } = pull;
+    pull = null;
+    frame.classList.remove('is-pulling');
+    if (wasClick && !moved) poke(u, v, w, h);
+    else wake();
+  };
+  frame.addEventListener('pointerup', (e) => letGo(e, true));
+  frame.addEventListener('pointercancel', (e) => letGo(e, false));
 
-  hang.addEventListener('pointercancel', () => {
-    if (drag) release();
-  });
-
-  hang.addEventListener('keydown', (e) => {
+  frame.addEventListener('keydown', (e) => {
     if (!live || (e.key !== 'Enter' && e.key !== ' ')) return;
     e.preventDefault();
-    nudgeDirection = -nudgeDirection;
-    omega = clamp(omega + nudgeDirection * NUDGE, 5);
-    limitSwing();
-    wake();
+    poke(0.5, 0.35, frame.clientWidth, frame.clientHeight);
   });
 
-  const apply = () => {
-    live = !reduced.matches;
-    hang.classList.toggle('is-live', live);
-    if (live) {
-      hang.setAttribute('role', 'button');
-      hang.setAttribute('tabindex', '0');
-      hang.setAttribute('aria-label', "Eric Ma's photo on a hanging tag. Press Enter or Space to swing it.");
-    } else {
-      cancelAnimationFrame(frame);
-      frame = 0;
-      drag = null;
-      theta = 0;
-      omega = 0;
-      render();
-      hang.classList.remove('is-dragging');
-      hang.removeAttribute('role');
-      hang.removeAttribute('tabindex');
-      hang.removeAttribute('aria-label');
+  const enable = () => {
+    if (!img.complete || !img.naturalWidth) {
+      img.addEventListener('load', apply, { once: true });
+      return;
     }
+    if (!gl && !setupGL()) return;
+    if (!canvas.parentNode) frame.appendChild(canvas);
+    resize();
+    draw();
+    live = true;
+    frame.classList.add('is-live');
+    frame.setAttribute('role', 'button');
+    frame.setAttribute('tabindex', '0');
+    frame.setAttribute('aria-label', "Eric Ma's photo. Pull it with a mouse or finger, or press Enter or Space to make it wobble.");
   };
 
+  const disable = () => {
+    live = false;
+    pull = null;
+    cancelAnimationFrame(frameId);
+    frameId = 0;
+    offX.fill(0);
+    offY.fill(0);
+    velX.fill(0);
+    velY.fill(0);
+    frame.classList.remove('is-live', 'is-pulling');
+    frame.removeAttribute('role');
+    frame.removeAttribute('tabindex');
+    frame.removeAttribute('aria-label');
+  };
+
+  function apply() {
+    if (reduced.matches) disable();
+    else enable();
+  }
+
   reduced.addEventListener('change', apply);
+  window.addEventListener('resize', () => {
+    if (live) {
+      resize();
+      draw();
+    }
+  });
   apply();
 })();
 

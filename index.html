@@ -12,8 +12,9 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="top top--home">
+  <header class="top">
     <div class="wrap top-inner">
+      <a class="mark" href="index.html">Eric Ma</a>
       <nav aria-label="Primary">
         <ul>
           <li><a href="#experience">Experience</a></li>
@@ -25,216 +26,175 @@
     </div>
   </header>
 
-  <main id="main" class="wrap">
-    <section class="hero" aria-label="Introduction">
-      <div class="hero-intro">
-        <h1>Eric Ma</h1>
-        <p class="role">Software Engineer · Applied ML Systems &amp; Backend</p>
-        <p class="place">Bellevue, WA</p>
-      </div>
+  <main id="main">
+    <div class="band">
+      <section class="wrap hero" aria-label="Introduction">
+        <div class="hero-intro">
+          <h1>Eric Ma</h1>
+          <p class="role">Software Engineer · Applied ML Systems &amp; Backend</p>
+          <p class="place">Bellevue, WA</p>
+        </div>
 
-      <dl class="spec">
-        <div>
-          <dt>Now</dt>
-          <dd><strong>Software Development Engineer I</strong><span class="sub">Amazon · Jul 2025 – Present</span></dd>
-        </div>
-        <div>
-          <dt>School</dt>
-          <dd><strong>UC Berkeley</strong><span class="sub">B.S. EECS · May 2025</span></dd>
-        </div>
-        <div>
-          <dt>Contact</dt>
-          <dd class="actions">
-            <a class="btn btn--solid" href="mailto:ericma0828@icloud.com">Email</a>
-            <a class="btn" href="pic/Eric_Ma_Resume.pdf">Resume</a>
-            <a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a>
-            <a href="https://github.com/CalEricMa">GitHub</a>
-          </dd>
-        </div>
-      </dl>
+        <dl class="spec">
+          <div>
+            <dt>Now</dt>
+            <dd><strong class="company">Amazon</strong><span class="sub">Software Development Engineer I · Jul 2025 – Present</span></dd>
+          </div>
+          <div>
+            <dt>School</dt>
+            <dd><strong>UC Berkeley</strong><span class="sub">B.S. EECS · May 2025</span></dd>
+          </div>
+          <div>
+            <dt>Contact</dt>
+            <dd class="actions">
+              <a class="btn btn--solid" href="mailto:ericma0828@icloud.com">Email</a>
+              <a class="btn" href="pic/Eric_Ma_Resume.pdf">Resume</a>
+              <a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a>
+              <a href="https://github.com/CalEricMa">GitHub</a>
+            </dd>
+          </div>
+        </dl>
 
-      <div class="hang-slot">
-        <span class="pivot" aria-hidden="true"></span>
-        <figure class="hang">
-          <span class="string" aria-hidden="true"></span>
-          <div class="tag">
+        <div class="portrait-wrap">
+          <div class="portrait">
             <img src="pic/profile-600.jpg"
                  srcset="pic/profile-600.jpg 600w, pic/profile-896.jpg 896w"
-                 sizes="(min-width: 760px) 280px, 134px"
+                 sizes="(min-width: 760px) 288px, 152px"
                  width="600" height="900" alt="Eric Ma" draggable="false" fetchpriority="high">
-            <p class="tag-hint">Drag to swing</p>
           </div>
-        </figure>
-      </div>
-    </section>
+          <p class="portrait-hint">Go on, pull my face</p>
+        </div>
+      </section>
+    </div>
 
-    <section id="experience" class="section">
-      <h2>Experience</h2>
-      <ol class="entries">
-        <li class="entry entry--current">
-          <p class="entry-side">Jul 2025 – Present</p>
-          <div>
-            <h3>Software Development Engineer I</h3>
-            <p class="entry-org">Amazon · Bellevue, WA</p>
-            <p class="entry-note">Short-term labor and capacity planning platform for last-mile delivery stations (~1,000 stations across North America, Europe and Japan)</p>
-            <ul>
-              <li>Tech lead for two new-hire engineers productionizing a Monte Carlo plan-risk model as a service (preprocessing, post-processing, async Lambda/queue handlers): scores <strong>~10K plans/day</strong> and flags over-aggressive plans so planners revise inputs before they cause missed packages.</li>
-              <li>Productionized a time-off optimization solver as a hosted service (Lambda, Step Functions, S3), scaling it from pilot to <strong>~1,000 stations</strong> (~10K plans/day) with readiness review, alarms and UAT.</li>
-              <!-- TODO: add users and an eval metric to the LLM agent bullet below -->
-              <li>Built the knowledge DAG behind a team LLM agent for operators so prompts return accurate, consistent answers.</li>
-              <li>Tech lead for a direct capacity feed to the downstream execution system: cut latency from <strong>~60 min to seconds</strong> (p99 30 s over 8,395 prod publishes), enabling the data-engineering team to fully retire the legacy pipeline.</li>
-              <li>Decoupled config from service deploys (AppConfig CDK pipeline, gamma stage, rollback alarms): cut prod deploy time <strong>~5 hrs → 30 min</strong> and ended deploy-skew SEV2s (~2/week).</li>
-              <li>Main contributor extending the platform from daily operator planning to multi-week planner workflows: built bulk override controls and split planner/operator UIs, ending race conditions.</li>
-            </ul>
+    <div class="wrap">
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <ol class="entries">
+          <li class="entry entry--current">
+            <p class="entry-side">Jul 2025 – Present</p>
+            <div>
+              <h3>Software Development Engineer I</h3>
+              <p class="entry-org"><strong>Amazon</strong> · Bellevue, WA</p>
+              <p class="entry-note">Short-term labor and capacity planning platform for last-mile delivery stations (~1,000 stations across North America, Europe and Japan)</p>
+              <ul>
+                <li>Tech lead for two new-hire engineers productionizing a Monte Carlo plan-risk model as a service (preprocessing, post-processing, async Lambda/queue handlers): scores <strong>~10K plans/day</strong> and flags over-aggressive plans so planners revise inputs before they cause missed packages.</li>
+                <li>Productionized a time-off optimization solver as a hosted service (Lambda, Step Functions, S3), scaling it from pilot to <strong>~1,000 stations</strong> (~10K plans/day) with readiness review, alarms and UAT.</li>
+                <!-- TODO: add users and an eval metric to the LLM agent bullet below -->
+                <li>Built the knowledge DAG behind a team LLM agent for operators so prompts return accurate, consistent answers.</li>
+                <li>Tech lead for a direct capacity feed to the downstream execution system: cut latency from <strong>~60 min to seconds</strong> (p99 30 s over 8,395 prod publishes), enabling the data-engineering team to fully retire the legacy pipeline.</li>
+                <li>Decoupled config from service deploys (AppConfig CDK pipeline, gamma stage, rollback alarms): cut prod deploy time <strong>~5 hrs → 30 min</strong> and ended deploy-skew SEV2s (~2/week).</li>
+                <li>Main contributor extending the platform from daily operator planning to multi-week planner workflows: built bulk override controls and split planner/operator UIs, ending race conditions.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="entry">
+            <p class="entry-side">Jan 2022 – May 2023</p>
+            <details>
+              <summary><h3>Teaching Assistant and Tutor</h3><span class="fold-org">Diablo Valley College</span></summary>
+              <ul>
+                <li>Conducted weekly office hours and provided guidance to 100+ students in data structures, algorithms, assembly language, OOP, discrete math, and linear algebra</li>
+                <li>Collaborated with a team of 50+ staff members to develop comprehensive course materials for 1,000+ students, enhancing the learning experience and course engagement.</li>
+              </ul>
+            </details>
+          </li>
+
+          <li class="entry">
+            <p class="entry-side">Jan 2022 – May 2023</p>
+            <details>
+              <summary><h3>Full-Stack Intern</h3><span class="fold-org">Student Government Technology Committee, UC Berkeley</span></summary>
+              <ul>
+                <li>Increased website traffic by 150% by leading a redesign project with 10 team members, implementing 14 new JavaScript-based features to enhance user interaction.</li>
+                <li>Improved event visibility for 1,000+ students by integrating a calendar API using Node.js to provide real-time updates on key student government dates.</li>
+                <li>Streamlined weekly agenda management by developing an Express.js backend server, enabling efficient upload and retrieval processes for student-related information.</li>
+              </ul>
+            </details>
+          </li>
+
+          <li class="entry">
+            <p class="entry-side">Sep 2022 – Nov 2022</p>
+            <details>
+              <summary><h3>Backend Lead</h3><span class="fold-org">Project Bracket</span></summary>
+              <ul>
+                <li>Led a backend team of 10 in developing an Android app using Kotlin and Python, integrating Google Maps API to enhance campus navigation and provide detailed information on instructors and classes, resulting in a 20% increase in user engagement.</li>
+                <li>Organized and conducted workshops on software engineering fundamentals, improving team members' coding skills and project contributions by 25%.</li>
+              </ul>
+            </details>
+          </li>
+
+          <li class="entry">
+            <p class="entry-side">Sep 2022 – Nov 2022</p>
+            <details>
+              <summary><h3>President and Founder</h3><span class="fold-org">Hong Kong Student Association</span></summary>
+              <ul>
+                <li>Founded and served as President, growing the association’s membership by 100% through strategic outreach and engagement initiatives.</li>
+                <li>Partnered with multiple campus clubs to co-host a diversity event attended by 1,000+ participants, successfully promoting Hong Kong culture and fostering multicultural awareness.</li>
+              </ul>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <ol class="entries">
+          <li class="entry">
+            <p class="entry-side">Feb 2024 – Apr 2024</p>
+            <div>
+              <h3><a href="html/post/DropboxClone.html">Dropbox Clone with End-to-End Encryption</a></h3>
+              <p class="entry-line">A secure file-sharing platform with end-to-end encryption in Golang, backed by over 100 security tests.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-side">Jan 2024 – Apr 2024</p>
+            <div>
+              <h3><a href="html/post/voicecar.html">Voice Command Controlled Car</a></h3>
+              <p class="entry-line">A noise-resistant voice command system with 95%+ classification accuracy, using SVD and PCA.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <p class="entry-side">Aug 2024 – Dec 2024</p>
+            <div>
+              <h3><a href="html/post/127Project.html">Adversarial Attack Detection with Lasso Regression</a></h3>
+              <p class="entry-line">99% detection accuracy for adversarial attacks on sensor data in a cyclic power network.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="education" class="section">
+        <h2>Education and skills</h2>
+        <div class="entries">
+          <div class="entry">
+            <p class="entry-side">May 2025</p>
+            <div>
+              <h3>University of California, Berkeley</h3>
+              <p class="entry-org">B.S. in Electrical Engineering and Computer Science (EECS)</p>
+            </div>
           </div>
-        </li>
-
-        <li class="entry">
-          <p class="entry-side">Jan 2022 – May 2023</p>
-          <div>
-            <h3>Teaching Assistant and Tutor</h3>
-            <p class="entry-org">Diablo Valley College</p>
-            <ul>
-              <li>Conducted weekly office hours and provided guidance to 100+ students in data structures, algorithms, assembly language, OOP, discrete math, and linear algebra</li>
-              <li>Collaborated with a team of 50+ staff members to develop comprehensive course materials for 1,000+ students, enhancing the learning experience and course engagement.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="entry">
-          <p class="entry-side">Jan 2022 – May 2023</p>
-          <div>
-            <h3>Full-Stack Intern</h3>
-            <p class="entry-org">Student Government Technology Committee, UC Berkeley</p>
-            <ul>
-              <li>Increased website traffic by 150% by leading a redesign project with 10 team members, implementing 14 new JavaScript-based features to enhance user interaction.</li>
-              <li>Improved event visibility for 1,000+ students by integrating a calendar API using Node.js to provide real-time updates on key student government dates.</li>
-              <li>Streamlined weekly agenda management by developing an Express.js backend server, enabling efficient upload and retrieval processes for student-related information.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="entry">
-          <p class="entry-side">Sep 2022 – Nov 2022</p>
-          <div>
-            <h3>Backend Lead</h3>
-            <p class="entry-org">Project Bracket</p>
-            <ul>
-              <li>Led a backend team of 10 in developing an Android app using Kotlin and Python, integrating Google Maps API to enhance campus navigation and provide detailed information on instructors and classes, resulting in a 20% increase in user engagement.</li>
-              <li>Organized and conducted workshops on software engineering fundamentals, improving team members' coding skills and project contributions by 25%.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="entry">
-          <p class="entry-side">Sep 2022 – Nov 2022</p>
-          <div>
-            <h3>President and Founder</h3>
-            <p class="entry-org">Hong Kong Student Association</p>
-            <ul>
-              <li>Founded and served as President, growing the association’s membership by 100% through strategic outreach and engagement initiatives.</li>
-              <li>Partnered with multiple campus clubs to co-host a diversity event attended by 1,000+ participants, successfully promoting Hong Kong culture and fostering multicultural awareness.</li>
-            </ul>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <ol class="entries">
-        <li class="entry">
-          <p class="entry-side">Feb 2024 – Apr 2024</p>
-          <div>
-            <h3><a href="html/post/DropboxClone.html">Dropbox Clone with End-to-End Encryption</a></h3>
-            <ul>
-              <li>Safeguarded user data privacy by building a secure file-sharing platform with end-to-end encryption using Golang, preventing unauthorized server access to sensitive information.</li>
-              <li>Fortified system integrity by constructing a secure database with RSA, AES-CTR, HMAC, digital signatures, and hybrid encryption providing comprehensive protection against cyber-attacks.</li>
-              <li>Enhanced system reliability by conducting over 100 security tests with the Ginkgo framework, identifying and mitigating vulnerabilities to deliver a robust and secure platform for end-users.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="entry">
-          <p class="entry-side">Jan 2024 – Apr 2024</p>
-          <div>
-            <h3><a href="html/post/voicecar.html">Voice Command Controlled Car</a></h3>
-            <ul>
-              <li>Achieved 95%+ classification accuracy for a noise-resistant voice command system by leveraging Singular Value Decomposition (SVD) and Principal Component Analysis (PCA) for dimensionality reduction and clustering.</li>
-              <li>Reduced preprocessing time by 30% by implementing optimized machine learning pipelines for data wrangling, feature extraction, and model training, enabling efficient processing of real-world voice input data.</li>
-              <li>Improved model robustness by 15% in dynamic environments by refining clustering techniques and iterating on feature engineering, ensuring accurate command recognition under noisy conditions.</li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="entry">
-          <p class="entry-side">Aug 2024 – Dec 2024</p>
-          <div>
-            <h3><a href="html/post/127Project.html">Adversarial Attack Detection with Lasso Regression</a></h3>
-            <ul>
-              <li>Achieved 99% detection accuracy by designing a scalable anomaly detection system using Lasso regression with sparsity constraints to identify adversarial attacks on sensor data in a cyclic power network.</li>
-              <li>Simulated machine learning-ready datasets by generating random network parameters and injecting Gaussian and uniform noise, showcasing expertise in data preprocessing and feature engineering.</li>
-              <li>Validated model robustness through statistical analysis over 100 trials, ensuring reliability against real-world noise and adversarial conditions.</li>
-            </ul>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section id="education" class="section">
-      <h2>Education</h2>
-      <div class="entries">
-        <div class="entry">
-          <p class="entry-side">May 2025</p>
-          <div>
-            <h3>University of California, Berkeley</h3>
-            <p class="entry-org">B.S. in Electrical Engineering and Computer Science (EECS)</p>
-            <p class="entry-note">Relevant coursework: Computer Security, Probability and Random Processes, Optimization Models in Engineering, Efficient Algorithms, Intro to Quant Finance, Designing Informative Devices and Systems, Intro to Full-Stack Development</p>
+          <div class="entry">
+            <p class="entry-side">Skills</p>
+            <p class="entry-line">Python, Java, Kotlin, TypeScript, SQL, Golang · AWS (Lambda, Step Functions, S3), CDK, Docker · React, Node.js/Express</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <dl class="entries">
-        <div class="entry">
-          <dt class="entry-side">Languages</dt>
-          <dd>Python, Java, Kotlin, TypeScript, JavaScript, SQL, Golang, C++, C, Scheme, x86 Assembly</dd>
-        </div>
-        <div class="entry">
-          <dt class="entry-side">ML &amp; Applied AI</dt>
-          <dd>LLM agents, knowledge DAG, Monte Carlo simulation, optimization solvers, NumPy, pandas, TensorFlow, Scikit-learn, CVX</dd>
-        </div>
-        <div class="entry">
-          <dt class="entry-side">Cloud &amp; Infrastructure</dt>
-          <dd>AWS (Lambda, Step Functions, S3, AppConfig), CDK, CI/CD, Docker</dd>
-        </div>
-        <div class="entry">
-          <dt class="entry-side">Frameworks &amp; Tools</dt>
-          <dd>React, Smithy, Node.js/Express, pytest, Git/GitHub, GDB</dd>
-        </div>
-        <div class="entry">
-          <dt class="entry-side">Concepts</dt>
-          <dd>Machine Learning, Computer Security, Optimization, Modelling, Circuits, Arduino</dd>
-        </div>
-      </dl>
-    </section>
+      <section id="thoughts" class="section">
+        <h2>Thoughts</h2>
+        <p class="lede">Notes on projects I've built and other thoughts.</p>
+        <p><a href="html/thoughts.html">Read the Thoughts</a></p>
+      </section>
 
-    <section id="thoughts" class="section">
-      <h2>Thoughts</h2>
-      <p class="lede">Notes on projects I've built and other thoughts.</p>
-      <p><a href="html/thoughts.html">Read the Thoughts</a></p>
-    </section>
-
-    <footer class="foot">
-      <p>Eric Ma · Bellevue, WA</p>
-      <ul>
-        <li><a href="mailto:ericma0828@icloud.com">Email</a></li>
-        <li><a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a></li>
-        <li><a href="https://github.com/CalEricMa">GitHub</a></li>
-      </ul>
-    </footer>
+      <footer class="foot">
+        <p>Eric Ma · Bellevue, WA</p>
+        <ul>
+          <li><a href="mailto:ericma0828@icloud.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a></li>
+          <li><a href="https://github.com/CalEricMa">GitHub</a></li>
+        </ul>
+      </footer>
+    </div>
   </main>
 
   <script src="script.js"></script>
