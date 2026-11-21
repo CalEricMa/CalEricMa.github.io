@@ -8,7 +8,7 @@ related_targets: ["html/thoughts.html", "html/post/*.html"]
 # Surface brief: personal site home page (index.html)
 
 ## Scope and mode
-Experience (portfolio). The home page plus the existing Thoughts index and post pages, all in this pass: every page loads the shared `style.css`, so replacing it without restyling them would break them. The spec column (who, where, since when, which degree) is the first thing read; the stretchable portrait is the focal image beside it. Redesign of an existing site; content carries over, look is replaced. Revised after owner feedback (2025-11-21): the first version felt too plain, the colour too flat, the nav not helpful while scrolling, and the page too dense.
+Experience (portfolio). The home page plus the existing Thoughts index and post pages, all in this pass: every page loads the shared `style.css`, so replacing it without restyling them would break them. The spec column (who, where, since when, which degree) is the first thing read; the stretchable portrait is the focal image beside it. Redesign of an existing site; content carries over, look is replaced. Revised after owner feedback (2026-11-21): the first version felt too plain, the colour too flat, the nav not helpful while scrolling, and the page too dense.
 
 ## Audience, job, proof
 - Audience: recruiters first, then engineers. Job: see Eric's role and impact in one pass, then contact him or open the resume.
