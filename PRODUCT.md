@@ -10,7 +10,7 @@ web
 Plain static HTML, CSS and JS with no build step, deployed to GitHub Pages from the existing repo `CalEricMa/CalEricMa.github.io` (branch `main`, live at https://calericma.github.io/). Decided by the user; custom physics in JS, no framework.
 
 ## Users
-Primary: recruiters and hiring managers who skim for Eric's current role and impact, then contact him or open the resume PDF. Secondary: fellow engineers who read projects and the Thoughts section. Recruiters come first.
+Primary: recruiters and hiring managers who skim for Eric's current role and impact, then contact him or open the resume PDF. Secondary: fellow engineers who read projects and the Thoughts pages (reached from the nav). Recruiters come first.
 
 ## Product Purpose
 Personal resume/portfolio site for Eric Ma, a Software Development Engineer at Amazon (applied ML systems and backend). It presents his experience, projects, education, skills and writing, and gets visitors to contact him. Success is a memorable, clean page where the experience is readable in one pass.
