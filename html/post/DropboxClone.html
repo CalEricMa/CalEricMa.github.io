@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Ma - Thoughts</title>
-  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+  <link rel="icon" href="data:,">
+  <title>Dropbox Clone with End-to-End Encryption – Eric Ma</title>
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="sidebar">
-      <div class="profile-pic">
-        <img src="../../pic/profile.jpg" alt="Eric Ma">
-      </div>
-      <div class="side-menu">
-        <ul>
-          <li><a href="../../index.html">About</a></li>
-          <li><a href="../../index.html#experience">Experience</a></li>
-          <li><a href="../../index.html#education">Education</a></li>
-          <li><a href="../../index.html#projects">Projects</a></li>
-          <li><a href="../../index.html#skills">Skills</a></li>
-          <li><a href="../thoughts.html">Thoughts</a></li>
-        </ul>
-      </div>
-    </nav>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <div class="content">
-        <h2>Dropbox Clone with End-to-End Encryption</h2>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="mark" href="../../index.html">Eric Ma</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../html/thoughts.html" aria-current="true">Thoughts</a></li>
+          <li><a href="../../pic/Eric_Ma_Resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap prose">
+        <h1>Dropbox Clone with End-to-End Encryption</h1>
         <br>
         <article>
           <p>
             This project is a secure file-sharing platform inspired by Dropbox, designed to safeguard user data privacy through end-to-end encryption. Files are encrypted on the client side, ensuring that the server has no access to unencrypted data.
           </p>
           
-          <h3>Key Features</h3>
+          <h2>Key Features</h2>
           <ul>
             <li>End-to-end encryption using RSA and AES-CTR for robust data protection.</li>
             <li>Secure file sharing with revocation capabilities through hybrid encryption methods.</li>
@@ -40,7 +40,7 @@
             <li>Data integrity verification using HMAC during all file operations.</li>
           </ul>
 
-          <h3>Tech Stack</h3>
+          <h2>Tech Stack</h2>
           <ul>
             <li><strong>Programming Language:</strong> Golang</li>
             <li><strong>Security Protocols:</strong> RSA, AES-CTR, HMAC</li>
@@ -48,12 +48,12 @@
             <li><strong>System Design:</strong> Distributed Datastore, Hybrid Encryption</li>
           </ul>
 
-          <h3>Implementation</h3>
+          <h2>Implementation</h2>
           <p>
             The platform encrypts files on the client side using AES-CTR for encryption and RSA for secure key exchange. A distributed datastore securely stores encrypted metadata alongside file fragments. File sharing and access revocation are handled via hybrid encryption, ensuring that sensitive data remains inaccessible to unauthorized users.
           </p>
 
-          <h3>Challenges and Solutions</h3>
+          <h2>Challenges and Solutions</h2>
           <ul>
             <li>
               <strong>Challenge:</strong> Securing user data against unauthorized server access.<br>
@@ -65,20 +65,28 @@
             </li>
           </ul>
 
-          <h3>Results</h3>
+          <h2>Results</h2>
           <ul>
             <li>Prevented unauthorized server access, achieving <strong>100% data privacy</strong>.</li>
             <li>Supported scalable file-sharing capabilities with reliable access control.</li>
             <li>Conducted over <strong>100 rigorous security tests</strong>, ensuring robustness and reliability.</li>
           </ul>
 
-          <h3>Showcase</h3>
+          <h2>Showcase</h2>
           <ul>
             <li><a href="https://github.com/CalEricMa/Dropbox-Clone-with-End-to-End-Encryption" target="_blank">GitHub Repository</a></li>
             <li><a href="https://docs.google.com/document/d/1UMB5Bb5_mRlXD_EVBlnF0XMGF2iPkoApD2vdQIkvHAA/edit?tab=t.0" target="_blank">Design Document</a></li>
           </ul>
         </article>
-    </div>
-  </div>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Eric Ma · Bellevue, WA</p>
+    <ul>
+      <li><a href="mailto:ericma0828@icloud.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a></li>
+      <li><a href="https://github.com/CalEricMa">GitHub</a></li>
+    </ul>
+  </footer>
 </body>
 </html>

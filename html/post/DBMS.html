@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Ma - Thoughts</title>
-  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+  <link rel="icon" href="data:,">
+  <title>Database Management System (RookieDB) – Eric Ma</title>
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="sidebar">
-      <div class="profile-pic">
-        <img src="../../pic/profile.jpg" alt="Eric Ma">
-      </div>
-      <div class="side-menu">
-        <ul>
-          <li><a href="../../index.html">About</a></li>
-          <li><a href="../../index.html#experience">Experience</a></li>
-          <li><a href="../../index.html#education">Education</a></li>
-          <li><a href="../../index.html#projects">Projects</a></li>
-          <li><a href="../../index.html#skills">Skills</a></li>
-          <li><a href="../thoughts.html">Thoughts</a></li>
-        </ul>
-      </div>
-    </nav>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <div class="content">
-        <h2>Database Management System (RookieDB)</h2>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="mark" href="../../index.html">Eric Ma</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../html/thoughts.html" aria-current="true">Thoughts</a></li>
+          <li><a href="../../pic/Eric_Ma_Resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap prose">
+        <h1>Database Management System (RookieDB)</h1>
         <br>
         <article>
           <p>
             RookieDB is a fully functional relational database engine built from scratch in Java as part of a semester-long course project at UC Berkeley (CS186). It covers core DBMS components including storage, indexing, query execution, join optimization, concurrency control, and crash recovery.
           </p>
       
-          <h3>Key Features</h3>
+          <h2>Key Features</h2>
           <ul>
             <li>Support for B+ Tree indexing with dynamic node splitting and merging.</li>
             <li>Join processing via multiple algorithms: Simple Nested Loop Join (SNLJ), Block Nested Loop Join (BNLJ), and Grace Hash Join (GHJ).</li>
@@ -41,19 +41,19 @@
             <li>Crash recovery system using write-ahead logging, checkpoints, and rollback.</li>
           </ul>
       
-          <h3>Tech Stack</h3>
+          <h2>Tech Stack</h2>
           <ul>
             <li><strong>Programming Language:</strong> Java</li>
             <li><strong>System Components:</strong> B+ Trees, Concurrency Control, Logging, Recovery</li>
             <li><strong>Algorithms:</strong> SNLJ, BNLJ, GHJ, Dynamic Programming (Join Planning)</li>
           </ul>
       
-          <h3>Implementation</h3>
+          <h2>Implementation</h2>
           <p>
             RookieDB is designed with modularity in mind, with separate components for storage management, indexing, and transaction processing. The B+ Tree implementation supports efficient inserts, deletes, and range queries. The query planner selects join strategies based on estimated cost using a dynamic programming algorithm. Concurrency is handled via multi-granularity 2PL, and crash recovery is enabled through logging and checkpoints.
           </p>
       
-          <h3>Challenges and Solutions</h3>
+          <h2>Challenges and Solutions</h2>
           <ul>
             <li>
               <strong>Challenge:</strong> Supporting concurrent transactions without introducing deadlocks.<br>
@@ -69,21 +69,28 @@
             </li>
           </ul>
       
-          <h3>Results</h3>
+          <h2>Results</h2>
           <ul>
             <li>Improved query performance by <strong>80%</strong> with B+ Tree indexing and optimized join plans.</li>
             <li>Increased transactional throughput by <strong>70%</strong> after concurrency and recovery optimizations.</li>
             <li>Handled complex transactions with crash recovery guarantees and modular system design.</li>
           </ul>
       
-          <h3>Showcase</h3>
+          <h2>Showcase</h2>
           <ul>
             <li><a href="https://github.com/CalEricMa/rookiedb" target="_blank">GitHub Repository</a></li>
             <!-- Optional: Add a blog post or design doc link here -->
           </ul>
         </article>
-      </div>
-      
-  </div>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Eric Ma · Bellevue, WA</p>
+    <ul>
+      <li><a href="mailto:ericma0828@icloud.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a></li>
+      <li><a href="https://github.com/CalEricMa">GitHub</a></li>
+    </ul>
+  </footer>
 </body>
 </html>

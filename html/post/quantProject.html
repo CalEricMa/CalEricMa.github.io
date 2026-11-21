@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Ma - Thoughts</title>
-  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+  <link rel="icon" href="data:,">
+  <title>Quant Finance Project: Developing and Backtesting a Systematic Trading Strategy – Eric Ma</title>
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="sidebar">
-      <div class="profile-pic">
-        <img src="../../pic/profile.jpg" alt="Eric Ma">
-      </div>
-      <div class="side-menu">
-        <ul>
-          <li><a href="../../index.html">About</a></li>
-          <li><a href="../../index.html#experience">Experience</a></li>
-          <li><a href="../../index.html#education">Education</a></li>
-          <li><a href="../../index.html#projects">Projects</a></li>
-          <li><a href="../../index.html#skills">Skills</a></li>
-          <li><a href="../thoughts.html">Thoughts</a></li>
-        </ul>
-      </div>
-    </nav>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <div class="content">
-        <h2>Quant Finance Project: Developing and Backtesting a Systematic Trading Strategy</h2>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="mark" href="../../index.html">Eric Ma</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../html/thoughts.html" aria-current="true">Thoughts</a></li>
+          <li><a href="../../pic/Eric_Ma_Resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap prose">
+        <h1>Quant Finance Project: Developing and Backtesting a Systematic Trading Strategy</h1>
         <br>
         <article>
           <p>
             This project aimed to design, implement, and evaluate a systematic trading strategy using real-world financial data from the S&P 500 constituents. It was divided into two main parts: data cleaning and processing, and strategy development and backtesting. The project demonstrates how quantitative techniques can be applied to financial markets and how data science aids in creating actionable trading insights.
           </p>
           
-          <h3>Objectives</h3>
+          <h2>Objectives</h2>
           <ul>
             <li><strong>Part 1: Data Preparation</strong>
               <ul>
@@ -50,7 +50,7 @@
             </li>
           </ul>
 
-          <h3>Methodology</h3>
+          <h2>Methodology</h2>
           <ul>
             <li>
               <strong>Data Preparation:</strong>
@@ -76,14 +76,14 @@
             </li>
           </ul>
 
-          <h3>Results</h3>
+          <h2>Results</h2>
           <ul>
             <li>Momentum Strategy: Decile-based long-short strategy performed well but was outperformed by an equal-weighted benchmark.</li>
             <li>Predictive Strategy: Showed improved performance over the momentum strategy, especially post-fees.</li>
             <li>Sharpe Ratios: Equal-weighted strategy exceeded 3 due to bullish conditions, while the predictive strategy achieved a positive ratio post-fees.</li>
           </ul>
 
-          <h3>Key Takeaways</h3>
+          <h2>Key Takeaways</h2>
           <ul>
             <li><strong>Quantitative Techniques:</strong> Applied momentum-based and predictive strategies, emphasizing risk-adjusted metrics like Sharpe ratios.</li>
             <li><strong>Backtesting Framework:</strong> Simulated real-world trading scenarios, highlighting the impact of transaction costs and slippage.</li>
@@ -91,7 +91,7 @@
             <li><strong>Challenges:</strong> Addressed lookahead bias and overfitting risks through validation and careful backtesting.</li>
           </ul>
 
-          <h3>Future Improvements</h3>
+          <h2>Future Improvements</h2>
           <ul>
             <li>Incorporate macroeconomic indicators and sentiment analysis for enhanced features.</li>
             <li>Extend backtesting to longer periods and diverse market conditions.</li>
@@ -99,7 +99,7 @@
             <li>Use portfolio optimization techniques to improve weighting schemes.</li>
           </ul>
 
-          <h3>Skills Demonstrated</h3>
+          <h2>Skills Demonstrated</h2>
           <ul>
             <li><strong>Programming:</strong> Python (Pandas, NumPy, Matplotlib, Statsmodels), yfinance for data collection.</li>
             <li><strong>Quantitative Analysis:</strong> Financial metrics, backtesting strategies, and transaction cost modeling.</li>
@@ -107,13 +107,21 @@
             <li><strong>Risk Assessment:</strong> Evaluated Sharpe ratios and visualized portfolio performance.</li>
           </ul>
 
-          <h3>Showcase</h3>
+          <h2>Showcase</h2>
           <ul>
             <li><a href="https://github.com/CalEricMa/Systematic-Trading-Strategy" target="_blank">GitHub Repository</a></li>
             <li><a href="https://docs.google.com/document/d/1LbFR9Ckh5TVoPm6R1dkVc5gl51oIYGGrQR46yS-3CCs/edit?tab=t.0#heading=h.lyk14ks6fkdp" target="_blank">Project Writeup</a></li>           
           </ul>
         </article>
-    </div>
-  </div>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Eric Ma · Bellevue, WA</p>
+    <ul>
+      <li><a href="mailto:ericma0828@icloud.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a></li>
+      <li><a href="https://github.com/CalEricMa">GitHub</a></li>
+    </ul>
+  </footer>
 </body>
 </html>

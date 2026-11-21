@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Ma - Thoughts</title>
-  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+  <link rel="icon" href="data:,">
+  <title>Notion Clone – Eric Ma</title>
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="sidebar">
-      <div class="profile-pic">
-        <img src="../../pic/profile.jpg" alt="Eric Ma">
-      </div>
-      <div class="side-menu">
-        <ul>
-          <li><a href="../../index.html">About</a></li>
-          <li><a href="../../index.html#experience">Experience</a></li>
-          <li><a href="../../index.html#education">Education</a></li>
-          <li><a href="../../index.html#projects">Projects</a></li>
-          <li><a href="../../index.html#skills">Skills</a></li>
-          <li><a href="../thoughts.html">Thoughts</a></li>
-        </ul>
-      </div>
-    </nav>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <div class="content">
-        <h2>Notion Clone</h2>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="mark" href="../../index.html">Eric Ma</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../html/thoughts.html" aria-current="true">Thoughts</a></li>
+          <li><a href="../../pic/Eric_Ma_Resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap prose">
+        <h1>Notion Clone</h1>
         <br>
         <article>
           <p>
             This project involved creating a full-stack task management application inspired by Notion, designed to provide users with an intuitive platform for organizing tasks and projects. By implementing dynamic task management and CRUD operations, the application ensures seamless usability and responsiveness.
           </p>
           
-          <h3>Key Features</h3>
+          <h2>Key Features</h2>
           <ul>
             <li>Dynamic task organization, allowing users to create, update, and delete tasks effortlessly.</li>
             <li>Responsive front-end design using TypeScript and React for an engaging user interface.</li>
@@ -40,21 +40,21 @@
             <li>Scalable architecture for efficient handling of large datasets and high user traffic.</li>
           </ul>
 
-          <h3>Tech Stack</h3>
+          <h2>Tech Stack</h2>
           <ul>
             <li><strong>Front-End:</strong> React with TypeScript</li>
             <li><strong>Back-End:</strong> Node.js</li>
             <li><strong>Database:</strong> SQL</li>
           </ul>
 
-          <h3>Implementation</h3>
+          <h2>Implementation</h2>
           <p>
             <strong>Dynamic Task Management:</strong> Built a responsive front-end interface with React and TypeScript, enabling users to manage tasks interactively.<br>
             <strong>Backend API Development:</strong> Designed and implemented RESTful APIs using Node.js to handle CRUD operations for task data.<br>
             <strong>Database Integration:</strong> Utilized SQL to store, retrieve, and organize task-related data efficiently, ensuring data consistency and scalability.<br>
           </p>
 
-          <h3>Challenges and Solutions</h3>
+          <h2>Challenges and Solutions</h2>
           <ul>
             <li>
               <strong>Challenge:</strong> Maintaining real-time responsiveness for task updates.<br>
@@ -66,19 +66,27 @@
             </li>
           </ul>
 
-          <h3>Results</h3>
+          <h2>Results</h2>
           <ul>
             <li>Delivered a user-friendly task management app with seamless CRUD functionality.</li>
             <li>Achieved fast response times for task updates, enhancing the user experience.</li>
             <li>Scalable back-end capable of handling large datasets and concurrent user interactions.</li>
           </ul>
 
-          <h3>Showcase</h3>
+          <h2>Showcase</h2>
           <ul>
             <li><a href="https://github.com/CalEricMa/todo-list-clone" target="_blank">GitHub Repository</a></li>
           </ul>
         </article>
-    </div>
-  </div>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Eric Ma · Bellevue, WA</p>
+    <ul>
+      <li><a href="mailto:ericma0828@icloud.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a></li>
+      <li><a href="https://github.com/CalEricMa">GitHub</a></li>
+    </ul>
+  </footer>
 </body>
 </html>

@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Ma - Thoughts</title>
-  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+  <link rel="icon" href="data:,">
+  <title>Voice Command Controlled Car – Eric Ma</title>
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="sidebar">
-      <div class="profile-pic">
-        <img src="../../pic/profile.jpg" alt="Eric Ma">
-      </div>
-      <div class="side-menu">
-        <ul>
-          <li><a href="../../index.html">About</a></li>
-          <li><a href="../../index.html#experience">Experience</a></li>
-          <li><a href="../../index.html#education">Education</a></li>
-          <li><a href="../../index.html#projects">Projects</a></li>
-          <li><a href="../../index.html#skills">Skills</a></li>
-          <li><a href="../thoughts.html">Thoughts</a></li>
-        </ul>
-      </div>
-    </nav>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <div class="content">
-        <h2>Voice Command Controlled Car</h2>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="mark" href="../../index.html">Eric Ma</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../html/thoughts.html" aria-current="true">Thoughts</a></li>
+          <li><a href="../../pic/Eric_Ma_Resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap prose">
+        <h1>Voice Command Controlled Car</h1>
         <br>
         <article>
           <p>
             This project involved designing and implementing a voice-controlled robotic car capable of precise navigation using machine learning for voice classification and feedback control systems for trajectory correction. A strong emphasis was placed on data preprocessing, dimensionality reduction, and real-time classification accuracy to enable reliable and responsive control.
           </p>
           
-          <h3>Key Features</h3>
+          <h2>Key Features</h2>
           <ul>
             <li>Accurate voice classification using SVD and PCA for dimensionality reduction.</li>
             <li>Implemented centroid-based clustering for robust command recognition.</li>
@@ -40,7 +40,7 @@
             <li>Integrated hardware and software systems for a seamless user experience.</li>
           </ul>
 
-          <h3>Data Collection & Preprocessing</h3>
+          <h2>Data Collection & Preprocessing</h2>
           <p>
             Voice data was collected using a microphone setup, sampling commands under varied conditions. Preprocessing steps included:
           </p>
@@ -50,7 +50,7 @@
             <li><strong>Demeaning:</strong> Subtracted the mean from each feature dimension, centering the data around the origin for PCA.</li>
           </ul>
 
-          <h3>Dimensionality Reduction with SVD and PCA</h3>
+          <h2>Dimensionality Reduction with SVD and PCA</h2>
           <p>
             To reduce the high dimensionality of the audio data:
           </p>
@@ -60,7 +60,7 @@
             <li>The reduced dataset was projected into the PCA basis, enabling effective visualization and clustering.</li>
           </ul>
 
-          <h3>Clustering and Classification</h3>
+          <h2>Clustering and Classification</h2>
           <p>
             Centroid-based clustering was employed to classify the commands:
           </p>
@@ -70,7 +70,7 @@
             <li>Achieved 100% accuracy on test samples, demonstrating the reliability of the clustering method.</li>
           </ul>
 
-          <h3>Model Enhancement</h3>
+          <h2>Model Enhancement</h2>
           <p>
             To further improve classification accuracy:
           </p>
@@ -80,7 +80,7 @@
             <li>Introduced an additional noise filtering step to handle environmental disturbances during real-time classification.</li>
           </ul>
 
-          <h3>Car Control Integration</h3>
+          <h2>Car Control Integration</h2>
           <p>
             The classified commands controlled the car as follows:
           </p>
@@ -94,7 +94,7 @@
             The closed-loop control system used encoder feedback to correct deviations from the intended trajectory, ensuring precise execution of commands.
           </p>
 
-          <h3>Challenges and Solutions</h3>
+          <h2>Challenges and Solutions</h2>
           <ul>
             <li>
               <strong>Challenge:</strong> Handling variability in voice samples.<br>
@@ -110,21 +110,29 @@
             </li>
           </ul>
 
-          <h3>Results</h3>
+          <h2>Results</h2>
           <ul>
             <li><strong>Classification Accuracy:</strong> Achieved 100% accuracy on test samples with reliable real-time performance.</li>
             <li><strong>Trajectory Precision:</strong> Closed-loop control reduced path deviations and maintained stable motion.</li>
             <li><strong>Integration Success:</strong> Seamless coordination between classification and car control systems.</li>
           </ul>
 
-          <h3>Showcase</h3>
+          <h2>Showcase</h2>
           <ul>
             <li><a href="https://github.com/CalEricMa/Voice-Command-Controlled-Car" target="_blank">GitHub Repository</a></li>
             <li><a href="https://docs.google.com/document/d/1Q8iVEcDkzw9bt3oLv476VXFKeOwhCbgj1867de3cTv4/edit?usp=sharing" target="_blank">Project Writeup</a></li>
             <li><a href="https://drive.google.com/file/d/1SJVnWnzVTH7FMf-rXGeJmzTC_9PQmC9t/view" target="_blank">Video Demo</a></li>
           </ul>
         </article>
-    </div>
-  </div>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Eric Ma · Bellevue, WA</p>
+    <ul>
+      <li><a href="mailto:ericma0828@icloud.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a></li>
+      <li><a href="https://github.com/CalEricMa">GitHub</a></li>
+    </ul>
+  </footer>
 </body>
 </html>

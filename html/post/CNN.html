@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eric Ma - Thoughts</title>
-  <link rel="stylesheet" href="../../style.css"> <!-- Link to your CSS file -->
+  <link rel="icon" href="data:,">
+  <title>Neural Network from Scratch – Eric Ma</title>
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="sidebar">
-      <div class="profile-pic">
-        <img src="../../pic/profile.jpg" alt="Eric Ma">
-      </div>
-      <div class="side-menu">
-        <ul>
-          <li><a href="../../index.html">About</a></li>
-          <li><a href="../../index.html#experience">Experience</a></li>
-          <li><a href="../../index.html#education">Education</a></li>
-          <li><a href="../../index.html#projects">Projects</a></li>
-          <li><a href="../../index.html#skills">Skills</a></li>
-          <li><a href="../thoughts.html">Thoughts</a></li>
-        </ul>
-      </div>
-    </nav>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <div class="content">
-        <h2>Neural Network from Scratch</h2>
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="mark" href="../../index.html">Eric Ma</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="../../index.html#experience">Experience</a></li>
+          <li><a href="../../index.html#projects">Projects</a></li>
+          <li><a href="../../html/thoughts.html" aria-current="true">Thoughts</a></li>
+          <li><a href="../../pic/Eric_Ma_Resume.pdf">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap prose">
+        <h1>Neural Network from Scratch</h1>
         <br>
         <article>
           <p>
             This project involved building a fully functional neural network framework from scratch using only NumPy. The implementation included forward and backward propagation, multiple activation functions, training logic, and optional support for convolutional layers and batch normalization — all designed without using high-level ML libraries like TensorFlow or PyTorch.
           </p>
       
-          <h3>Key Features</h3>
+          <h2>Key Features</h2>
           <ul>
             <li>Custom implementation of feedforward neural networks with support for multiple layers and nonlinear activations.</li>
             <li>Backpropagation algorithm for gradient computation and parameter updates using stochastic gradient descent (SGD).</li>
@@ -41,19 +41,19 @@
             <li>Extended framework to support convolutional and pooling layers.</li>
           </ul>
       
-          <h3>Tech Stack</h3>
+          <h2>Tech Stack</h2>
           <ul>
             <li><strong>Programming Language:</strong> Python</li>
             <li><strong>Libraries:</strong> NumPy (no high-level DL libraries used)</li>
             <li><strong>Concepts:</strong> Forward/Backward Propagation, ReLU, Softmax, BatchNorm, SGD</li>
           </ul>
       
-          <h3>Implementation</h3>
+          <h2>Implementation</h2>
           <p>
             The model was trained on the Iris dataset and achieved strong performance despite being built from scratch. Training involved calculating gradients manually via backpropagation, applying loss using cross-entropy, and tuning hyperparameters like learning rate and hidden layer size. Batch normalization was added to reduce internal covariate shift and speed up training. Later iterations added support for convolutional operations and max pooling layers, enabling the framework to scale to image-based tasks.
           </p>
       
-          <h3>Challenges and Solutions</h3>
+          <h2>Challenges and Solutions</h2>
           <ul>
             <li>
               <strong>Challenge:</strong> Ensuring gradient correctness without built-in autograd tools.<br>
@@ -65,22 +65,28 @@
             </li>
           </ul>
       
-          <h3>Results</h3>
+          <h2>Results</h2>
           <ul>
             <li>Achieved <strong>96% classification accuracy</strong> on the Iris dataset.</li>
             <li>Improved training speed by <strong>30%</strong> after introducing batch normalization and optimized NumPy operations.</li>
             <li>Successfully scaled framework to include convolutional and max-pooling layers with validated gradient flows.</li>
           </ul>
       
-          <h3>Showcase</h3>
+          <h2>Showcase</h2>
           <ul>
             <li><a href="https://github.com/CalEricMa/nn-from-scratch" target="_blank">GitHub Repository</a></li>
             <!-- Optional: Link to write-up or Colab notebook -->
           </ul>
         </article>
-      </div>
-      
-      
-  </div>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Eric Ma · Bellevue, WA</p>
+    <ul>
+      <li><a href="mailto:ericma0828@icloud.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/eric-ma-ba7052212/">LinkedIn</a></li>
+      <li><a href="https://github.com/CalEricMa">GitHub</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
