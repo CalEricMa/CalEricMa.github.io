@@ -77,6 +77,18 @@
               <h3>Software Development Engineer I</h3>
               <p class="entry-org"><strong>Amazon</strong> · Bellevue, WA</p>
               <p class="entry-line">I build the planning systems that help Amazon delivery stations around the world staff their days.</p>
+              <details class="more">
+                <summary>Details</summary>
+                <ul>
+                  <li>Tech lead for two new-hire engineers productionizing a Monte Carlo plan-risk model as a service (preprocessing, post-processing, async Lambda/queue handlers): scores <strong>~10K plans/day</strong> and flags over-aggressive plans so planners revise inputs before they cause missed packages.</li>
+                  <li>Productionized a time-off optimization solver as a hosted service (Lambda, Step Functions, S3), scaling it from pilot to <strong>~1,000 stations</strong> (~10K plans/day) with readiness review, alarms and UAT.</li>
+                  <!-- TODO: add users and an eval metric to the LLM agent bullet below -->
+                  <li>Built the knowledge DAG behind a team LLM agent for operators so prompts return accurate, consistent answers.</li>
+                  <li>Tech lead for a direct capacity feed to the downstream execution system: cut latency from <strong>~60 min to seconds</strong> (p99 30 s over 8,395 prod publishes), enabling the data-engineering team to fully retire the legacy pipeline.</li>
+                  <li>Decoupled config from service deploys (AppConfig CDK pipeline, gamma stage, rollback alarms): cut prod deploy time <strong>~5 hrs → 30 min</strong> and ended deploy-skew SEV2s (~2/week).</li>
+                  <li>Main contributor extending the platform from daily operator planning to multi-week planner workflows: built bulk override controls and split planner/operator UIs, ending race conditions.</li>
+                </ul>
+              </details>
             </div>
           </li>
 
