@@ -1,232 +1,352 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-21T18:00:00Z",
+  "generatedAt": "2026-11-22T00:00:00Z",
   "title": "Design System: Eric Ma Personal Site",
   "extensions": {
     "colorMeta": {
       "ground": {
         "role": "neutral",
-        "displayName": "Card-Stock Grey",
-        "canonical": "#e7e8e4",
+        "displayName": "Blue-Grey Paper",
+        "canonical": "#eef1f5",
         "tonalRamp": [
-          "#2a2b28",
-          "#4a4c47",
-          "#6d6f69",
-          "#8f918b",
-          "#b0b2ac",
-          "#c9cac5",
-          "#e7e8e4",
-          "#f5f5f2"
+          "#47484a",
+          "#77787a",
+          "#a7a9ac",
+          "#eef1f5",
+          "#f2f4f8",
+          "#f6f8fa",
+          "#fafbfc",
+          "#fdfdfe"
         ]
       },
       "card": {
         "role": "neutral",
-        "displayName": "Band Paper",
-        "canonical": "#f5f5f2",
+        "displayName": "Card",
+        "canonical": "#f8f9fb",
         "tonalRamp": [
-          "#2c2c2a",
-          "#4f4f4c",
-          "#747471",
-          "#999996",
-          "#bdbdba",
-          "#d8d8d5",
-          "#ebebe8",
-          "#f5f5f2"
+          "#4a4b4b",
+          "#7c7c7e",
+          "#aeaeb0",
+          "#f8f9fb",
+          "#fafafc",
+          "#fcfcfd",
+          "#fdfdfe",
+          "#fefeff"
         ]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Press Ink",
-        "canonical": "#161616",
+        "displayName": "Harbor Ink",
+        "canonical": "#1a2230",
         "tonalRamp": [
-          "#161616",
-          "#2b2b2b",
-          "#424242",
-          "#5b5b5b",
-          "#767676",
-          "#939393",
-          "#b3b3b3",
-          "#d4d4d4"
+          "#080a0e",
+          "#0d1118",
+          "#121822",
+          "#1a2230",
+          "#535964",
+          "#8c9098",
+          "#babdc1",
+          "#e4e4e6"
         ]
       },
       "ink-2": {
         "role": "neutral",
-        "displayName": "Soft Ink",
-        "canonical": "#4e514b",
+        "displayName": "Slate Ink",
+        "canonical": "#4d586a",
         "tonalRamp": [
-          "#1f211e",
-          "#33352f",
-          "#4e514b",
-          "#686b64",
-          "#82857e",
-          "#9d9f99",
-          "#b9bbb6",
-          "#d6d7d3"
+          "#171a20",
+          "#262c35",
+          "#363e4a",
+          "#4d586a",
+          "#7a828f",
+          "#a6acb4",
+          "#cacdd2",
+          "#eaebed"
         ]
       },
       "accent": {
         "role": "primary",
-        "displayName": "Ledger Indigo",
-        "canonical": "#22356b",
+        "displayName": "Harbor Blue",
+        "canonical": "#284777",
         "tonalRamp": [
-          "#0e1630",
-          "#16244a",
-          "#22356b",
-          "#3a4f8c",
-          "#5c70a8",
-          "#8493c2",
-          "#aeb8da",
-          "#d6dbee"
+          "#0c1524",
+          "#14243c",
+          "#1c3253",
+          "#284777",
+          "#5e7599",
+          "#94a3bb",
+          "#bec8d6",
+          "#e5e9ef"
         ]
       },
       "accent-deep": {
         "role": "primary",
-        "displayName": "Indigo Deep",
-        "canonical": "#1a2956",
+        "displayName": "Harbor Deep",
+        "canonical": "#1f3a63",
         "tonalRamp": [
-          "#0a1028",
-          "#121c3e",
-          "#1a2956",
-          "#2f4277",
-          "#51649a",
-          "#7b8bb9",
-          "#a9b3d5",
-          "#d3d8ec"
+          "#09111e",
+          "#101d32",
+          "#162945",
+          "#1f3a63",
+          "#576b8a",
+          "#8f9cb1",
+          "#bcc4d0",
+          "#e4e7ec"
         ]
       },
       "on-accent": {
         "role": "neutral",
-        "displayName": "Band Paper",
-        "canonical": "#f5f5f2",
+        "displayName": "Band White",
+        "canonical": "#f4f7fb",
         "tonalRamp": [
-          "#2c2c2a",
-          "#4f4f4c",
-          "#747471",
-          "#999996",
-          "#bdbdba",
-          "#d8d8d5",
-          "#ebebe8",
-          "#f5f5f2"
+          "#494a4b",
+          "#7a7c7e",
+          "#abadb0",
+          "#f4f7fb",
+          "#f7f9fc",
+          "#fafbfd",
+          "#fcfdfe",
+          "#fefeff"
         ]
       },
       "on-accent-2": {
         "role": "secondary",
         "displayName": "Band Mist",
-        "canonical": "#c9d0ea",
+        "canonical": "#c5d3ea",
         "tonalRamp": [
-          "#232a45",
-          "#3b4670",
-          "#5a67a0",
-          "#7b88bd",
-          "#9aa5d2",
-          "#b4bde0",
-          "#c9d0ea",
-          "#e3e7f4"
+          "#3b3f46",
+          "#626a75",
+          "#8a94a4",
+          "#c5d3ea",
+          "#d4deef",
+          "#e2e9f4",
+          "#eef2f9",
+          "#f8fafc"
+        ]
+      },
+      "on-accent-wash": {
+        "role": "neutral",
+        "displayName": "Band Wash",
+        "canonical": "rgba(244, 247, 251, 0.14)",
+        "tonalRamp": [
+          "rgba(244,247,251,0.9)",
+          "rgba(244,247,251,0.7)",
+          "rgba(244,247,251,0.5)",
+          "rgba(244,247,251,0.35)",
+          "rgba(244,247,251,0.14)",
+          "rgba(244,247,251,0.1)",
+          "rgba(244,247,251,0.06)",
+          "rgba(244,247,251,0.03)"
+        ]
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "Harbor Link",
+        "canonical": "#22528f",
+        "tonalRamp": [
+          "#0a192b",
+          "#112948",
+          "#183964",
+          "#22528f",
+          "#597dab",
+          "#90a8c7",
+          "#bdcbdd",
+          "#e4eaf2"
         ]
       },
       "rule": {
         "role": "neutral",
         "displayName": "Hairline",
-        "canonical": "rgba(22, 22, 22, 0.22)",
+        "canonical": "rgba(26, 34, 48, 0.16)",
         "tonalRamp": [
-          "rgba(22,22,22,0.9)",
-          "rgba(22,22,22,0.7)",
-          "rgba(22,22,22,0.5)",
-          "rgba(22,22,22,0.35)",
-          "rgba(22,22,22,0.22)",
-          "rgba(22,22,22,0.14)",
-          "rgba(22,22,22,0.08)",
-          "rgba(22,22,22,0.04)"
+          "rgba(26,34,48,0.9)",
+          "rgba(26,34,48,0.7)",
+          "rgba(26,34,48,0.5)",
+          "rgba(26,34,48,0.35)",
+          "rgba(26,34,48,0.16)",
+          "rgba(26,34,48,0.1)",
+          "rgba(26,34,48,0.06)",
+          "rgba(26,34,48,0.03)"
         ]
       },
       "rule-on-accent": {
         "role": "neutral",
         "displayName": "Band Hairline",
-        "canonical": "rgba(245, 245, 242, 0.3)",
+        "canonical": "rgba(244, 247, 251, 0.24)",
         "tonalRamp": [
-          "rgba(245,245,242,0.9)",
-          "rgba(245,245,242,0.7)",
-          "rgba(245,245,242,0.5)",
-          "rgba(245,245,242,0.4)",
-          "rgba(245,245,242,0.3)",
-          "rgba(245,245,242,0.2)",
-          "rgba(245,245,242,0.12)",
-          "rgba(245,245,242,0.06)"
+          "rgba(244,247,251,0.9)",
+          "rgba(244,247,251,0.7)",
+          "rgba(244,247,251,0.5)",
+          "rgba(244,247,251,0.35)",
+          "rgba(244,247,251,0.24)",
+          "rgba(244,247,251,0.1)",
+          "rgba(244,247,251,0.06)",
+          "rgba(244,247,251,0.03)"
         ]
       },
       "ground-dark": {
         "role": "neutral",
-        "displayName": "Midnight Ground",
-        "canonical": "#13151e",
+        "displayName": "Night Ground",
+        "canonical": "#0f141c",
         "tonalRamp": [
-          "#07080c",
-          "#13151e",
-          "#232634",
-          "#363a4d",
-          "#4a5068",
-          "#6a7088",
-          "#9097ad",
-          "#c4c8d8"
+          "#040608",
+          "#080a0e",
+          "#0a0e14",
+          "#0f141c",
+          "#4b4f55",
+          "#878a8e",
+          "#b7b8bb",
+          "#e2e3e4"
+        ]
+      },
+      "card-dark": {
+        "role": "neutral",
+        "displayName": "Night Card",
+        "canonical": "#161c26",
+        "tonalRamp": [
+          "#07080b",
+          "#0b0e13",
+          "#0f141b",
+          "#161c26",
+          "#50555c",
+          "#8a8e92",
+          "#b9bbbe",
+          "#e3e4e5"
         ]
       },
       "ink-dark": {
         "role": "neutral",
-        "displayName": "Frost Ink",
-        "canonical": "#e9ebf3",
+        "displayName": "Mist Ink",
+        "canonical": "#d5dce6",
         "tonalRamp": [
-          "#5b6075",
-          "#7c8298",
-          "#9aa0b5",
-          "#b4b9ca",
-          "#cbcfdc",
-          "#dcdfe9",
-          "#e9ebf3",
-          "#f5f6fa"
+          "#404245",
+          "#6a6e73",
+          "#959aa1",
+          "#d5dce6",
+          "#e0e5ec",
+          "#eaeef2",
+          "#f2f4f8",
+          "#fafbfc"
         ]
       },
       "ink-2-dark": {
         "role": "neutral",
         "displayName": "Dusk Ink",
-        "canonical": "#a6adc2",
+        "canonical": "#9daabd",
         "tonalRamp": [
-          "#3d4256",
-          "#555b72",
-          "#6e748b",
-          "#868da4",
-          "#a6adc2",
-          "#bcc1d1",
-          "#d2d6e1",
-          "#e6e8ef"
+          "#2f3339",
+          "#4e555e",
+          "#6e7784",
+          "#9daabd",
+          "#b6bfce",
+          "#ced4de",
+          "#e2e6eb",
+          "#f3f5f7"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Night Band",
+        "canonical": "#1b2b48",
+        "tonalRamp": [
+          "#080d16",
+          "#0e1624",
+          "#131e32",
+          "#1b2b48",
+          "#546076",
+          "#8d95a4",
+          "#bbbfc8",
+          "#e4e6e9"
+        ]
+      },
+      "accent-deep-dark": {
+        "role": "primary",
+        "displayName": "Night Deep",
+        "canonical": "#15223a",
+        "tonalRamp": [
+          "#060a11",
+          "#0a111d",
+          "#0f1829",
+          "#15223a",
+          "#50596b",
+          "#8a909c",
+          "#b9bdc4",
+          "#e3e4e7"
+        ]
+      },
+      "on-accent-dark": {
+        "role": "neutral",
+        "displayName": "Night Band White",
+        "canonical": "#eef2f8",
+        "tonalRamp": [
+          "#47494a",
+          "#77797c",
+          "#a7a9ae",
+          "#eef2f8",
+          "#f2f5fa",
+          "#f6f8fc",
+          "#fafbfd",
+          "#fdfdfe"
+        ]
+      },
+      "on-accent-2-dark": {
+        "role": "secondary",
+        "displayName": "Night Band Mist",
+        "canonical": "#a9bbd8",
+        "tonalRamp": [
+          "#333841",
+          "#545e6c",
+          "#768397",
+          "#a9bbd8",
+          "#becce2",
+          "#d4ddec",
+          "#e5ebf3",
+          "#f5f7fa"
         ]
       },
       "link-dark": {
         "role": "primary",
-        "displayName": "Periwinkle Link",
-        "canonical": "#a9b8ff",
+        "displayName": "Sky Link",
+        "canonical": "#8fb3f5",
         "tonalRamp": [
-          "#2a3570",
-          "#3f4f9e",
-          "#5a6fd0",
-          "#7b8ef0",
-          "#a9b8ff",
-          "#c3ceff",
-          "#dae0ff",
-          "#eef0ff"
+          "#2b364a",
+          "#485a7a",
+          "#647dac",
+          "#8fb3f5",
+          "#abc6f8",
+          "#c7d9fa",
+          "#dde8fc",
+          "#f2f6fe"
         ]
       },
       "rule-dark": {
         "role": "neutral",
         "displayName": "Dark Hairline",
-        "canonical": "rgba(233, 235, 243, 0.2)",
+        "canonical": "rgba(213, 220, 230, 0.14)",
         "tonalRamp": [
-          "rgba(233,235,243,0.9)",
-          "rgba(233,235,243,0.7)",
-          "rgba(233,235,243,0.5)",
-          "rgba(233,235,243,0.35)",
-          "rgba(233,235,243,0.2)",
-          "rgba(233,235,243,0.14)",
-          "rgba(233,235,243,0.08)",
-          "rgba(233,235,243,0.04)"
+          "rgba(213,220,230,0.9)",
+          "rgba(213,220,230,0.7)",
+          "rgba(213,220,230,0.5)",
+          "rgba(213,220,230,0.35)",
+          "rgba(213,220,230,0.14)",
+          "rgba(213,220,230,0.1)",
+          "rgba(213,220,230,0.06)",
+          "rgba(213,220,230,0.03)"
+        ]
+      },
+      "rule-on-accent-dark": {
+        "role": "neutral",
+        "displayName": "Night Band Hairline",
+        "canonical": "rgba(238, 242, 248, 0.18)",
+        "tonalRamp": [
+          "rgba(238,242,248,0.9)",
+          "rgba(238,242,248,0.7)",
+          "rgba(238,242,248,0.5)",
+          "rgba(238,242,248,0.35)",
+          "rgba(238,242,248,0.18)",
+          "rgba(238,242,248,0.1)",
+          "rgba(238,242,248,0.06)",
+          "rgba(238,242,248,0.03)"
         ]
       }
     },
@@ -255,8 +375,8 @@
     "shadows": [
       {
         "name": "portrait-lift",
-        "value": "0 0.9rem 1.6rem -0.7rem rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(245, 245, 242, 0.18)",
-        "purpose": "The portrait frame only, lifting it off the indigo band; the one shadowed element."
+        "value": "0 0.9rem 1.6rem -0.7rem rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(244, 247, 251, 0.24)",
+        "purpose": "The portrait frame only, lifting it off the blue band; the one shadowed element."
       }
     ],
     "motion": [
@@ -309,62 +429,62 @@
       "name": "Solid Button",
       "kind": "button",
       "refersTo": "button-solid",
-      "description": "Primary action (Email), on the indigo band.",
+      "description": "Primary action (Email), on the blue band.",
       "html": "<div class=\"ds-band\"><a class=\"ds-btn ds-btn-solid\" href=\"#\">Email</a></div>",
-      "css": ".ds-band{padding:1rem;background:var(--accent,#22356b)}.ds-btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border:1.5px solid var(--on-accent,#f5f5f2);border-radius:.375rem;color:var(--on-accent,#f5f5f2);font:600 .9375rem system-ui,sans-serif;text-decoration:none}.ds-btn-solid{background:var(--on-accent,#f5f5f2);color:var(--accent,#22356b)}.ds-btn-solid:hover{background:#fff}.ds-btn:focus-visible{outline:2px solid var(--on-accent,#f5f5f2);outline-offset:3px;border-radius:2px}"
+      "css": ".ds-band{padding:1rem;background:var(--accent,#284777)}.ds-btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border:1.5px solid var(--on-accent,#f4f7fb);border-radius:.375rem;color:var(--on-accent,#f4f7fb);font:600 .9375rem system-ui,sans-serif;text-decoration:none}.ds-btn-solid{background:var(--on-accent,#f4f7fb);color:var(--accent,#284777)}.ds-btn-solid:hover{background:#fff}.ds-btn:focus-visible{outline:2px solid var(--on-accent,#f4f7fb);outline-offset:3px;border-radius:2px}"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Secondary action (Resume), on the indigo band.",
+      "description": "Secondary action (Resume), on the blue band.",
       "html": "<div class=\"ds-band\"><a class=\"ds-btn ds-btn-outline\" href=\"#\">Resume</a></div>",
-      "css": ".ds-band{padding:1rem;background:var(--accent,#22356b)}.ds-btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border:1.5px solid var(--on-accent,#f5f5f2);border-radius:.375rem;color:var(--on-accent,#f5f5f2);font:600 .9375rem system-ui,sans-serif;text-decoration:none}.ds-btn-outline:hover{background:rgba(245,245,242,.14)}.ds-btn:focus-visible{outline:2px solid var(--on-accent,#f5f5f2);outline-offset:3px;border-radius:2px}"
+      "css": ".ds-band{padding:1rem;background:var(--accent,#284777)}.ds-btn{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 1.1rem;border:1.5px solid var(--on-accent,#f4f7fb);border-radius:.375rem;color:var(--on-accent,#f4f7fb);font:600 .9375rem system-ui,sans-serif;text-decoration:none}.ds-btn-outline:hover{background:rgba(244,247,251,.14)}.ds-btn:focus-visible{outline:2px solid var(--on-accent,#f4f7fb);outline-offset:3px;border-radius:2px}"
     },
     {
       "name": "Sticky Navigation",
       "kind": "nav",
       "refersTo": "nav",
-      "description": "Indigo bar; the current item is weight 700 with a 2px underline and aria-current, never colour alone. Ends with a theme toggle button.",
+      "description": "Blue bar; the current item is weight 700 with a 2px underline and aria-current, never colour alone. Ends with a theme toggle button.",
       "html": "<nav class=\"ds-nav-bar\" aria-label=\"Primary\"><ul class=\"ds-nav\"><li><a href=\"#\" aria-current=\"location\">Experience</a></li><li><a href=\"#\">Projects</a></li><li><a href=\"#\">Thoughts</a></li><li><a href=\"#\">Resume</a></li></ul></nav><button class=\"ds-toggle\" type=\"button\" aria-label=\"Switch to dark mode\">&#9788;</button>",
-      "css": ".ds-nav-bar{height:3.5rem;display:flex;align-items:center;padding-inline:1.25rem;background:var(--accent,#22356b)}.ds-nav{display:flex;gap:.25rem 1.5rem;margin:0;padding:0;list-style:none}.ds-nav a{display:inline-block;padding-block:.25rem;color:var(--on-accent,#f5f5f2);font:500 .9375rem system-ui,sans-serif;text-decoration:none}.ds-nav a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.35em}.ds-nav a[aria-current]{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.35em}.ds-nav a:focus-visible{outline:2px solid var(--on-accent,#f5f5f2);outline-offset:3px;border-radius:2px}.ds-nav-bar{gap:1.5rem}.ds-toggle{margin-left:auto;width:2.75rem;height:2.75rem;border:0;border-radius:.375rem;background:none;color:var(--on-accent,#f5f5f2);cursor:pointer}.ds-toggle:hover{background:rgba(245,245,242,.14)}.ds-toggle:focus-visible{outline:2px solid var(--on-accent,#f5f5f2);outline-offset:3px;border-radius:2px}"
+      "css": ".ds-nav-bar{height:3.5rem;display:flex;align-items:center;padding-inline:1.25rem;background:var(--accent,#284777)}.ds-nav{display:flex;gap:.25rem 1.5rem;margin:0;padding:0;list-style:none}.ds-nav a{display:inline-block;padding-block:.25rem;color:var(--on-accent,#f4f7fb);font:500 .9375rem system-ui,sans-serif;text-decoration:none}.ds-nav a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.35em}.ds-nav a[aria-current]{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.35em}.ds-nav a:focus-visible{outline:2px solid var(--on-accent,#f4f7fb);outline-offset:3px;border-radius:2px}.ds-nav-bar{gap:1.5rem}.ds-toggle{margin-left:auto;width:2.75rem;height:2.75rem;border:0;border-radius:.375rem;background:none;color:var(--on-accent,#f4f7fb);cursor:pointer}.ds-toggle:hover{background:rgba(244,247,251,.14)}.ds-toggle:focus-visible{outline:2px solid var(--on-accent,#f4f7fb);outline-offset:3px;border-radius:2px}"
     },
     {
       "name": "Spec Rows",
       "kind": "custom",
-      "description": "Mono-label and value rows on the indigo band, ruled with the band hairline.",
+      "description": "Mono-label and value rows on the blue band, ruled with the band hairline.",
       "html": "<div class=\"ds-band\"><dl class=\"ds-spec\"><div><dt>Now</dt><dd><strong class=\"ds-company\">Amazon</strong><span class=\"ds-sub\">Software Development Engineer I</span></dd></div><div><dt>School</dt><dd><strong>UC Berkeley</strong><span class=\"ds-sub\">B.S. EECS</span></dd></div></dl></div>",
-      "css": ".ds-band{padding:1rem;background:var(--accent,#22356b);color:var(--on-accent,#f5f5f2);font:400 1.0625rem/1.6 system-ui,sans-serif}.ds-spec{margin:0;border-top:1px solid rgba(245,245,242,.3)}.ds-spec>div{display:grid;grid-template-columns:7rem minmax(0,1fr);column-gap:1rem;padding-block:.9rem;border-bottom:1px solid rgba(245,245,242,.3)}.ds-spec dt{padding-top:.3rem;color:var(--on-accent-2,#c9d0ea);font:600 .8125rem ui-monospace,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase}.ds-spec dd{margin:0}.ds-spec strong{font-size:1.1875rem;line-height:1.3}.ds-company{font-size:1.375rem!important;font-weight:800;letter-spacing:-.01em}.ds-sub{display:block;color:var(--on-accent-2,#c9d0ea);font-size:.9375rem}"
+      "css": ".ds-band{padding:1rem;background:var(--accent,#284777);color:var(--on-accent,#f4f7fb);font:400 1.0625rem/1.6 system-ui,sans-serif}.ds-spec{margin:0;border-top:1px solid rgba(244,247,251,.24)}.ds-spec>div{display:grid;grid-template-columns:7rem minmax(0,1fr);column-gap:1rem;padding-block:.9rem;border-bottom:1px solid rgba(244,247,251,.24)}.ds-spec dt{padding-top:.3rem;color:var(--on-accent-2,#c5d3ea);font:600 .8125rem ui-monospace,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase}.ds-spec dd{margin:0}.ds-spec strong{font-size:1.1875rem;line-height:1.3}.ds-company{font-size:1.375rem!important;font-weight:800;letter-spacing:-.01em}.ds-sub{display:block;color:var(--on-accent-2,#c5d3ea);font-size:.9375rem}"
     },
     {
       "name": "Entry Row",
       "kind": "custom",
       "description": "Ruled date-column and content row for Experience, Projects, Education, Skills.",
       "html": "<ol class=\"ds-entries\"><li class=\"ds-entry\"><p class=\"ds-side\">Jul 2025 – Present</p><div><h3>Software Development Engineer I</h3><p class=\"ds-org\"><strong>Amazon</strong> · Bellevue, WA</p></div></li></ol>",
-      "css": ".ds-entries{margin:0;padding:0;list-style:none;border-top:1px solid rgba(22,22,22,.22);background:#e7e8e4;color:#161616;font:400 1.0625rem/1.6 system-ui,sans-serif}.ds-entry{display:grid;grid-template-columns:10.5rem minmax(0,1fr);gap:.35rem 2rem;padding-block:1.25rem;border-bottom:1px solid rgba(22,22,22,.22)}.ds-side{margin:0;color:#4e514b;font:400 .8125rem ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}.ds-entry h3{margin:0;font-size:1.1875rem;font-weight:650;line-height:1.3}.ds-org{margin:.15rem 0 0;color:#4e514b}.ds-org strong{color:#161616;font-size:1.125rem}"
+      "css": ".ds-entries{margin:0;padding:0;list-style:none;border-top:1px solid rgba(26,34,48,.16);background:#eef1f5;color:#1a2230;font:400 1.0625rem/1.6 system-ui,sans-serif}.ds-entry{display:grid;grid-template-columns:10.5rem minmax(0,1fr);gap:.35rem 2rem;padding-block:1.25rem;border-bottom:1px solid rgba(26,34,48,.16)}.ds-side{margin:0;color:#4d586a;font:400 .8125rem ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}.ds-entry h3{margin:0;font-size:1.1875rem;font-weight:650;line-height:1.3}.ds-org{margin:.15rem 0 0;color:#4d586a}.ds-org strong{color:#1a2230;font-size:1.125rem}"
     },
     {
       "name": "Older-role Row",
       "kind": "custom",
       "description": "Native details/summary: one line, opens on click.",
       "html": "<div class=\"ds-fold\"><details><summary><h3>Teaching Assistant and Tutor</h3><span>Diablo Valley College</span></details></div>",
-      "css": ".ds-fold{padding:1.25rem 0;border-top:1px solid rgba(22,22,22,.22);border-bottom:1px solid rgba(22,22,22,.22);background:#e7e8e4;color:#161616;font:400 1.0625rem/1.6 system-ui,sans-serif}.ds-fold summary{cursor:pointer}.ds-fold h3{display:inline;margin:0;font-size:1.0625rem;font-weight:650}.ds-fold summary span{margin-left:.6rem;color:#4e514b}.ds-fold summary:focus-visible{outline:2px solid #22356b;outline-offset:3px;border-radius:2px}"
+      "css": ".ds-fold{padding:1.25rem 0;border-top:1px solid rgba(26,34,48,.16);border-bottom:1px solid rgba(26,34,48,.16);background:#eef1f5;color:#1a2230;font:400 1.0625rem/1.6 system-ui,sans-serif}.ds-fold summary{cursor:pointer}.ds-fold h3{display:inline;margin:0;font-size:1.0625rem;font-weight:650}.ds-fold summary span{margin-left:.6rem;color:#4d586a}.ds-fold summary:focus-visible{outline:2px solid #284777;outline-offset:3px;border-radius:2px}"
     },
     {
       "name": "Portrait",
       "kind": "custom",
-      "description": "Signature: 2:3 rounded frame on the indigo band; script swaps the photo for a WebGL rubber sheet you can pull. Shown static here.",
+      "description": "Signature: 2:3 rounded frame on the blue band; script swaps the photo for a WebGL rubber sheet you can pull. Shown static here.",
       "html": "<div class=\"ds-band\"><div class=\"ds-portrait\"></div><p class=\"ds-hint\">Go on, pull my face</p></div>",
-      "css": ".ds-band{width:11.5rem;padding:1rem;background:var(--accent,#22356b)}.ds-portrait{width:9.5rem;aspect-ratio:2/3;border-radius:.75rem;background:#000;box-shadow:0 .9rem 1.6rem -.7rem rgba(0,0,0,.55),0 0 0 1px rgba(245,245,242,.18);cursor:grab}.ds-portrait:focus-visible{outline:2px solid var(--on-accent,#f5f5f2);outline-offset:4px}.ds-hint{margin:.7rem 0 0;color:var(--on-accent-2,#c9d0ea);font:400 .8125rem ui-monospace,Menlo,monospace;text-align:center}"
+      "css": ".ds-band{width:11.5rem;padding:1rem;background:var(--accent,#284777)}.ds-portrait{width:9.5rem;aspect-ratio:2/3;border-radius:.75rem;background:#000;box-shadow:0 .9rem 1.6rem -.7rem rgba(0,0,0,.55),0 0 0 1px rgba(244,247,251,.24);cursor:grab}.ds-portrait:focus-visible{outline:2px solid var(--on-accent,#f4f7fb);outline-offset:4px}.ds-hint{margin:.7rem 0 0;color:var(--on-accent-2,#c5d3ea);font:400 .8125rem ui-monospace,Menlo,monospace;text-align:center}"
     }
   ],
   "narrative": {
     "northStar": "The Pull-Toy Spec Sheet",
-    "overview": "A deep indigo band carries the name, the role and one toy: a portrait you can grab and stretch like a rubber sheet. Below it the page drops to cool card-stock grey and reads as a printed spec sheet, with hairline-ruled rows, mono labels over plain sans values, and near-black ink. One hue does everything; one object moves.\n\nThe band is the Committed colour: the sticky nav and the hero are the same indigo, so the header reads as one surface while the page scrolls beneath it. The rest is calm on purpose, so that the portrait is the only thing that responds to touch. Density is that of a printed form: narrow label column, generous row padding, text capped near 68ch.\n\nThe system uses the platform's own type (no web fonts, an owner decision) and no imagery beyond the portrait.\n\nA dark theme (cool near-black ground, light ink, a lighter indigo tint for links) is chosen from localStorage or the system setting and flipped by a nav button; the indigo band is the same in both.",
+    "overview": "A harbor-blue band carries the name, the role and one toy: a portrait you can grab and stretch like a rubber sheet. Below it the page drops to blue-grey paper and reads as a printed spec sheet, with hairline-ruled rows, mono labels over plain sans values, and blue-black ink. One hue does everything, neutrals included; one object moves.\n\nThe band is the Committed colour: the sticky nav and the hero are the same blue, so the header reads as one surface while the page scrolls beneath it. The rest is calm on purpose, so that the portrait is the only thing that responds to touch. Density is that of a printed form: narrow label column, generous row padding, text capped near 68ch.\n\nThe system uses the platform's own type (no web fonts, an owner decision) and no imagery beyond the portrait.\n\nA dark theme (blue-black ground, softened light ink, a lighter blue tint for links, and a band that darkens to a quiet strip) is chosen from localStorage or the system setting and flipped by a nav button.",
     "keyCharacteristics": [
-      "Indigo band (nav plus hero) over a flat, ruled grey sheet; hairlines are the only structural device below the band.",
-      "One hue (indigo) for the band, links, focus and selection; no second accent. In dark, links, focus and selection take a lighter tint of it.",
-      "Two themes, light and dark, switched by a nav button; the band, nav and everything on them are identical in both.",
+      "Blue band (nav plus hero) over a flat, ruled blue-grey sheet; hairlines are the only structural device below the band.",
+      "One hue (blue, about OKLCH h255-260) for the band, links, focus and selection, and every neutral is tinted toward it; no second accent. In dark, links, focus and selection take a lighter tint of it.",
+      "Two themes, light and dark, switched by a nav button; in dark the band darkens with the page so it never outshines the content.",
       "System sans for text, system mono for labels, dates and the portrait hint.",
       "One toy: the WebGL rubber-sheet portrait. Everything else is static apart from link scrolling.",
       "\"Amazon\" is the one bold company name.",
@@ -373,22 +493,22 @@
     "rules": [
       {
         "name": "The One Hue Rule",
-        "body": "Indigo is the only chromatic colour. On the band it is the surface in both themes; on the ground it marks interaction (link, focus, selection), never decoration, as Ledger Indigo in light and its lighter tint Periwinkle Link (#a9b8ff) in dark.",
+        "body": "Blue is the only chromatic colour, and every neutral is tinted toward it (OKLCH hue about 255-260, low chroma). On the band it is the surface; on the ground it marks interaction (link, focus, selection), never decoration.",
         "section": "colors"
       },
       {
         "name": "The Never Colour Alone Rule",
-        "body": "Links are underlined (1px, 2px on hover), and the current nav item is marked by weight 700 plus a 2px underline and aria-current, never by colour. Indigo (or its dark-theme tint) against ink is only about 1.5:1.",
+        "body": "Links are underlined (1px, 2px on hover), and the current nav item is marked by weight 700 plus a 2px underline and aria-current, never by colour. Link against ink is only about 2:1.",
         "section": "colors"
       },
       {
         "name": "The Band Text Rule",
-        "body": "Text on the band is Band Paper or Band Mist only, in both themes, with the same two-step hierarchy as Press Ink and Soft Ink on the ground.",
+        "body": "Text on the band is Band White or Band Mist only, in both themes, with the same two-step hierarchy as Harbor Ink and Slate Ink on the ground.",
         "section": "colors"
       },
       {
-        "name": "The Band Does Not Theme Rule",
-        "body": "Dark mode changes the ground, ink, rules and link tint only. The band and nav keep #22356b and their paper text; do not darken or invert them.",
+        "name": "The Band Sits Below The Content Rule",
+        "body": "In dark mode the band darkens to Night Band so it is never brighter than the text it frames. Keep it within about 1.5:1 of the dark ground.",
         "section": "colors"
       },
       {
@@ -413,10 +533,10 @@
       }
     ],
     "dos": [
-      "Do build new surfaces from hairline rules (1px) and mono labels over sans values, on the grey ground.",
-      "Do keep Indigo (#22356b) as the one hue: the band always, and links, focus and selection in light; use #a9b8ff for those on the dark ground.",
-      "Do build every new colour as a token with a dark value, and check ground-side text against the dark ground (#13151e).",
-      "Do put text on the band in Band Paper (#f5f5f2) or Band Mist (#c9d0ea) only.",
+      "Do build new surfaces from hairline rules (1px) and mono labels over sans values, on the blue-grey ground.",
+      "Do keep blue as the one hue: Harbor Blue (#284777) for the band and Harbor Link (#22528f) for links, focus and selection in light; Night Band (#1b2b48) and Sky Link (#8fb3f5) in dark. Tint any new neutral toward the same hue.",
+      "Do build every new colour as a token with a dark value, and check ground-side text against the dark ground (#0f141c).",
+      "Do put text on the band in Band White or Band Mist only (#f4f7fb / #c5d3ea light, #eef2f8 / #a9bbd8 dark).",
       "Do pair every link and current-state signal with an underline, weight or aria-current.",
       "Do keep reduced-motion users on the plain photo and instant scrolling.",
       "Do size touch targets to 2.75rem and cap running text at 68ch.",
@@ -428,7 +548,9 @@
       "Don't convey the current page or a link by colour alone.",
       "Don't set a second company name in heavier weight than Amazon's.",
       "Don't set body or headings in the mono face, or add web fonts.",
-      "Don't theme the band, add a third theme, or use a second chromatic colour for dark mode."
+      "Don't let the dark band get brighter than about 1.5:1 over the dark ground, add a third theme, or use a second chromatic colour for dark mode.",
+      "Don't use warm or untinted greys; they read as dirty next to the blue.",
+      "Don't hardcode a colour in a rule; add a token with a dark value."
     ]
   }
 }

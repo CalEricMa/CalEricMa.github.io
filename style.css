@@ -1,36 +1,44 @@
 :root {
   color-scheme: light;
-  --ground: #e7e8e4;
-  --card: #f5f5f2;
-  --ink: #161616;
-  --ink-2: #4e514b;
-  --accent: #22356b;
-  --accent-deep: #1a2956;
-  --on-accent: #f5f5f2;
-  --on-accent-2: #c9d0ea;
-  --rule: rgba(22, 22, 22, 0.22);
-  --rule-on-accent: rgba(245, 245, 242, 0.3);
+  --ground: #eef1f5;
+  --card: #f8f9fb;
+  --ink: #1a2230;
+  --ink-2: #4d586a;
+  --accent: #284777;
+  --accent-deep: #1f3a63;
+  --on-accent: #f4f7fb;
+  --on-accent-2: #c5d3ea;
+  --on-accent-wash: rgba(244, 247, 251, 0.14);
+  --rule: rgba(26, 34, 48, 0.16);
+  --rule-on-accent: rgba(244, 247, 251, 0.24);
   --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
   --wrap: 70rem;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --nav-h: 3.5rem;
   --portrait-w: 9.5rem;
-  --link: #22356b;
-  --focus: #22356b;
-  --scroll: #9a9d96;
+  --link: #22528f;
+  --focus: #22528f;
+  --scroll: #a9b3c2;
 }
 
-/* Dark theme: a cool near-black ground. The indigo band and nav stay the same indigo; only links need a lighter tint to be readable. */
+/* Dark theme: the band darkens too, so it sits just above the ground instead of glowing; ink is softened below pure white to cut halation. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ground: #13151e;
-  --ink: #e9ebf3;
-  --ink-2: #a6adc2;
-  --link: #a9b8ff;
-  --focus: #a9b8ff;
-  --scroll: #4a5068;
-  --rule: rgba(233, 235, 243, 0.2);
+  --ground: #0f141c;
+  --card: #161c26;
+  --ink: #d5dce6;
+  --ink-2: #9daabd;
+  --accent: #1b2b48;
+  --accent-deep: #15223a;
+  --on-accent: #eef2f8;
+  --on-accent-2: #a9bbd8;
+  --on-accent-wash: rgba(238, 242, 248, 0.12);
+  --rule: rgba(213, 220, 230, 0.14);
+  --rule-on-accent: rgba(238, 242, 248, 0.18);
+  --link: #8fb3f5;
+  --focus: #8fb3f5;
+  --scroll: #38445a;
 }
 
 *,
@@ -127,7 +135,7 @@ strong {
   top: 0.75rem;
 }
 
-/* Sticky header: the same indigo as the hero band, so it reads as one surface while the page scrolls under it. */
+/* Sticky header: the same blue as the hero band, so it reads as one surface while the page scrolls under it. */
 
 .top {
   position: sticky;
@@ -201,7 +209,7 @@ strong {
 }
 
 .theme-toggle:hover {
-  background: rgba(245, 245, 242, 0.14);
+  background: var(--on-accent-wash);
 }
 
 .theme-toggle .icon-sun,
@@ -340,7 +348,7 @@ strong {
 }
 
 .btn:hover {
-  background: rgba(245, 245, 242, 0.14);
+  background: var(--on-accent-wash);
 }
 
 .band .btn--solid {
@@ -366,7 +374,7 @@ strong {
   overflow: hidden;
   border-radius: 0.75rem;
   background: #000;
-  box-shadow: 0 0.9rem 1.6rem -0.7rem rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(245, 245, 242, 0.18);
+  box-shadow: 0 0.9rem 1.6rem -0.7rem rgba(0, 0, 0, 0.55), 0 0 0 1px var(--rule-on-accent);
   -webkit-tap-highlight-color: transparent;
 }
 

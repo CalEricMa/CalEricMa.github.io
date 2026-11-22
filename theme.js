@@ -12,6 +12,8 @@
   };
   const apply = () => {
     root.dataset.theme = stored() || (system.matches ? 'dark' : 'light');
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = getComputedStyle(root).getPropertyValue('--accent').trim();
     const button = document.querySelector('.theme-toggle');
     if (button) button.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
   };
